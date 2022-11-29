@@ -1,0 +1,147 @@
+# forecast input COMPASS NFB scenario
+[IMPORT_SRF_COMPAS_SCNRO_NFB]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -h %dbhost -p %dbport -c /usr/amoeba/tools/grib2_import/config/compass_nfb_grib2.conf -t compass_nfb_grib2 %input
+LogFile=/usr/amoeba/log/PREC_KAKUHO_COMPASS/import_srf_compas_scnro_nfb.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_NFB
+
+# forecast input COMPASS PRISM scenario
+[IMPORT_SRF_COMPAS_SCNRO_PRISM]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -h %dbhost -p %dbport -c /usr/amoeba/tools/grib2_import/config/mip_compass_nfb_grib2.conf -t mip_compass_nfb_grib2 %input
+LogFile=/usr/amoeba/log/PREC_KAKUHO_COMPASS/import_srf_compas_scnro_prism.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_PRISM
+
+# make observation input precipitation
+[RISK_SCALE_MICRONET_PRECIPITATION]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/recv_mnet_prec.rb %dbhost %dbport /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml %input
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/recv_mnet_prec.log
+WaitList=RECV_MICRONET_PRECIPITATION
+
+# make kakuho input precipitation
+[RISK_SCALE_KAKUHO_10MIN_AREA_CALC_1]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml 1
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/kakuho_area_calc_1.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# make kakuho input precipitation
+[RISK_SCALE_KAKUHO_10MIN_AREA_CALC_2]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml 2
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/kakuho_area_calc_2.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# copy compass input precipitation
+[RISK_SCALE_COPY_COMPASS_RAIN]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/copy_compass.rb %input /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml rain
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/copy_compass.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_NFB
+
+# make compass input precipitation
+[RISK_SCALE_COMPASS_PRECIPITATION]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/maxp_compass_area.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/maxp_compass_area.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_NFB
+
+# compass prec counter
+[RISK_SCALE_COMPASS_PREC_COUNTER]
+Command=/usr/amoeba/tools/compass_prec_counter/bin/compass_prec_counter -c /usr/amoeba/tools/compass_prec_counter/config/compass_prec_counter.conf
+LogFile=/usr/amoeba/log/COMPASS_PREC_COUNTER/compass_prec_counter.log
+WaitList=IMPORT_SRF_COMPAS_SCNRO_NFB
+
+# compass prec mesh counter
+[RISK_SCALE_COMPASS_PREC_MESH_COUNTER]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/compass_prec_mesh_counter.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/compass_prec_mesh_counter.log
+WaitList=RISK_SCALE_COMPASS_PREC_COUNTER
+
+# spool edit scale value
+[RISK_SCALE_RAIN_CHANGED_SPOOL]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/spool_edit_risk_scale.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/spool_edit_risk_scale.log
+WaitList=WNI_SRF_10V_SCAL_DIM_RAIN_CHANGED
+
+# make rain risk scale every 3min
+[MAKE_PRCRIN_RISK_SCALE_1]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml 1
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/risk_scale_rain_output_1.log
+
+# make rain risk scale every 3min
+[MAKE_PRCRIN_RISK_SCALE_2]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml 2
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/risk_scale_rain_output_2.log
+
+#-----
+# MIP 
+#-----
+
+# make kakuho input precipitation
+[MIP_RISK_SCALE_KAKUHO_10MIN_AREA_CALC_1]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 1
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_kakuho_area_calc_1.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# make kakuho input precipitation
+[MIP_RISK_SCALE_KAKUHO_10MIN_AREA_CALC_2]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 2
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_kakuho_area_calc_2.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# make kakuho input precipitation
+[MIP_RISK_SCALE_KAKUHO_10MIN_AREA_CALC_3]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_kakuho_area_calc_3.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# make kakuho input precipitation
+[MIP_RISK_SCALE_KAKUHO_10MIN_AREA_CALC_4]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/kakuho_area_calc.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 4
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_kakuho_area_calc_4.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# copy compass input precipitation
+[MIP_RISK_SCALE_COPY_COMPASS_RAIN]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/copy_compass.rb %input /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml rain
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_copy_compass.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_PRISM
+
+# make compass input precipitation
+[MIP_RISK_SCALE_COMPASS_PRECIPITATION]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/maxp_compass_area.rb %input /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_maxp_compass_area.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_PRISM
+
+# compass prec counter
+[MIP_RISK_SCALE_COMPASS_PREC_COUNTER]
+Command=/usr/amoeba/tools/compass_prec_counter/bin/compass_prec_counter -c /usr/amoeba/tools/compass_prec_counter/config/mip_compass_prec_counter.conf
+LogFile=/usr/amoeba/log/COMPASS_PREC_COUNTER/mip_compass_prec_counter.log
+WaitList=IMPORT_SRF_COMPAS_SCNRO_PRISM
+
+# compass prec mesh counter
+[MIP_RISK_SCALE_COMPASS_PREC_MESH_COUNTER]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/compass_prec_mesh_counter.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_compass_prec_mesh_counter.log
+WaitList=MIP_RISK_SCALE_COMPASS_PREC_COUNTER
+
+# make rain risk scale every 3min
+[MIP_MAKE_PRCRIN_RISK_SCALE_1]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb -m /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 1
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_risk_scale_rain_output_1.log
+
+# make rain risk scale every 3min
+[MIP_MAKE_PRCRIN_RISK_SCALE_2]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb -m /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 2
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_risk_scale_rain_output_2.log
+
+# make rain risk scale every 3min
+[MIP_MAKE_PRCRIN_RISK_SCALE_3]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb -m /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 3
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_risk_scale_rain_output_3.log
+
+# make rain risk scale every 3min
+[MIP_MAKE_PRCRIN_RISK_SCALE_4]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/risk_scale_rain_output.rb -m /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml 4
+WaitList=RISK_SCALE_PRCRIN_TIME_3
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_risk_scale_rain_output_4.log

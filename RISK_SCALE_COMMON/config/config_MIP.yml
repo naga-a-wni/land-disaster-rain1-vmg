@@ -1,0 +1,25 @@
+#config.yml
+# ポリゴンデータパース
+area_polygon_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_AREA.xml
+area_mesh_compas_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/MIP_area_mesh_compas_map.pst
+area_mesh_kakuho_dir: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/
+area_mesh_kakuho_name: MIP_area_mesh_kakuho_map
+# compass 生データスプール
+raw_compass_rain: /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/412010061
+# COMPASSのスプールファイル
+spool_compass_rain: /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/MIP_rain_scale_compass.pst
+# ポリゴンデータパースロックファイル
+area_mesh_lock_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/MIP_area_mesh_lock
+# 基本情報パースリスクスケール毎
+table_basic_info_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_CUST_INFO.xml
+table_basic_rain_dump_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/table_MIP_basic_rain_info_all.pst
+table_basic_rain_dump_dir: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/
+table_basic_rain_dump_name: table_MIP_basic_rain_info
+# 基準値パースリスクスケール毎
+table_srf_10vscal_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_10V_SCAL_TRSHLD.xml
+table_10vscal_rain_dump_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/table_srf_10vscal_rain_MIP.pst
+# 大雨に関するリスクスケール分割数
+rain_group_count: 4
+rain_group_count_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/rain_MIP_group_count.pst
+# 大雨に関するリスクスケールグループmk2テーブル
+mk2_prec_group_table: rain_mip_group

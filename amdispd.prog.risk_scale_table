@@ -1,0 +1,125 @@
+# spool basic xml
+[SPOOL_TABLE_DIM_CUST_INFO_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_DIM_CUST_INFO.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/dump_tables_basic.log
+WaitList=WNI_TABLE_DIM_CUST_INFO
+
+# parse basic xml
+[PARSE_TABLE_DIM_CUST_INFO_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/dump_rain_basic_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/dump_tables_basic.log
+WaitList=SPOOL_TABLE_DIM_CUST_INFO_XML,SPOOL_TABLE_DIM_10V_SCAL_TRSHLD_XML,SPOOL_TABLE_DIM_AREA_XML
+TimeOut=300
+
+# spool threshold xml
+[SPOOL_TABLE_DIM_10V_SCAL_TRSHLD_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_DIM_10V_SCAL_TRSHLD.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/dump_tables_threshold.log
+WaitList=WNI_TABLE_DIM_10V_SCAL_TRSHLD
+
+# parse threshold xml
+[PARSE_TABLE_DIM_10V_SCAL_TRSHLD_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/dump_rain_threshold_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/dump_tables_threshold.log
+WaitList=PARSE_TABLE_DIM_CUST_INFO_XML
+
+# spool polygon xml
+[SPOOL_TABLE_DIM_AREA_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_DIM_AREA.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/mesh_polygon_map.log
+WaitList=RECV_WNI_TABLE_DIM_AREA
+
+# parse polygon xml for compass
+[PARSE_TABLE_DIM_AREA_XML_COMPASS]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/mesh_polygon_map_rain.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml compas
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/mesh_polygon_map.log
+WaitList=PARSE_TABLE_DIM_CUST_INFO_XML
+
+# devide basic table
+[devide_TABLE_DIM_CUST_INFO]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/devide_rain_basic_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/dump_tables_basic.log
+WaitList=PARSE_TABLE_DIM_AREA_XML_COMPASS
+
+# parse polygon xml for kakuho
+[PARSE_TABLE_DIM_AREA_XML_KAKUHO]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/mesh_polygon_map_rain.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config.yml kakuho
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/mesh_polygon_map.log
+WaitList=devide_TABLE_DIM_CUST_INFO
+
+# make compass input precipitation
+[PARSE_TABLE_COMPASS_PRECIPITATION]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/maxp_compass_area.rb /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/412010060 /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/maxp_compass_area.log
+WaitList=PARSE_TABLE_DIM_AREA_XML_COMPASS
+
+# compass prec mesh counter
+[PARSE_TABLE_COMPASS_PREC_MESH_COUNTER]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/compass_prec_mesh_counter.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/compass_prec_mesh_counter.log
+WaitList=PARSE_TABLE_COMPASS_PRECIPITATION
+
+#-----
+# MIP 
+#-----
+
+# spool basic xml
+[SPOOL_TABLE_MIP_CUST_INFO_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_CUST_INFO.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_dump_tables_basic.log
+WaitList=WNI_TABLE_MIP_CUST_INFO
+
+# parse basic xml
+[PARSE_TABLE_MIP_CUST_INFO_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/dump_rain_basic_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_dump_tables_basic.log
+WaitList=SPOOL_TABLE_MIP_CUST_INFO_XML,SPOOL_TABLE_MIP_10V_SCAL_TRSHLD_XML,SPOOL_TABLE_MIP_AREA_XML
+TimeOut=300
+
+# devide basic table
+[devide_TABLE_MIP_CUST_INFO]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/devide_rain_basic_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_dump_tables_basic.log
+WaitList=PARSE_TABLE_MIP_AREA_XML_COMPASS
+
+# spool threshold xml
+[SPOOL_TABLE_MIP_10V_SCAL_TRSHLD_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_10V_SCAL_TRSHLD.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_dump_tables_threshold.log
+WaitList=WNI_TABLE_MIP_10V_SCAL_TRSHLD
+
+# parse threshold xml
+[PARSE_TABLE_MIP_10V_SCAL_TRSHLD_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/dump_rain_threshold_tables.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_dump_tables_threshold.log
+WaitList=PARSE_TABLE_MIP_CUST_INFO_XML
+
+# spool polygon xml
+[SPOOL_TABLE_MIP_AREA_XML]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/TABLE_MIP_AREA.xml
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_mesh_polygon_map.log
+WaitList=RECV_WNI_TABLE_MIP_AREA
+
+# parse polygon xml for compass
+[PARSE_TABLE_MIP_AREA_XML_COMPASS]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/mesh_polygon_map_rain.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml compas
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_mesh_polygon_map.log
+WaitList=PARSE_TABLE_MIP_CUST_INFO_XML
+
+# parse polygon xml for kakuho
+[PARSE_TABLE_MIP_AREA_XML_KAKUHO]
+Command=/usr/amoeba/tools/RISK_SCALE_COMMON/scripts/mesh_polygon_map_rain.rb /usr/amoeba/tools/RISK_SCALE_COMMON/config/config_MIP.yml kakuho
+LogFile=/usr/amoeba/log/RISK_SCALE_COMMON/MIP_mesh_polygon_map.log
+WaitList=devide_TABLE_MIP_CUST_INFO
+
+# make compass input precipitation
+[MIP_PARSE_TABLE_COMPASS_PRECIPITATION]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/maxp_compass_area.rb /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/412010061 /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_maxp_compass_area.log
+WaitList=PARSE_TABLE_MIP_AREA_XML_COMPASS
+
+# compass prec mesh counter
+[MIP_PARSE_TABLE_COMPASS_PREC_MESH_COUNTER]
+Command=/usr/amoeba/tools/PRCRIN_RISK_SCALE/scripts/compass_prec_mesh_counter.rb /usr/amoeba/tools/PRCRIN_RISK_SCALE/config/config_MIP.yml
+LogFile=/usr/amoeba/log/PRCRIN_RISK_SCALE/MIP_compass_prec_mesh_counter.log
+WaitList=MIP_PARSE_TABLE_COMPASS_PRECIPITATION

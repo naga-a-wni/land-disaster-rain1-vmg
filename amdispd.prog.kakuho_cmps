@@ -1,0 +1,17 @@
+# forecast input COMPASS NFB scenario
+[IMPORT_SRF_COMPAS_SCNRO_NFB]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -h %dbhost -p %dbport -c /usr/amoeba/tools/grib2_import/config/compass_nfb_grib2.conf -t compass_nfb_grib2 %input
+LogFile=/usr/amoeba/log/PREC_KAKUHO_COMPASS/import_srf_compas_scnro_nfb.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_NFB
+
+# forecast input kakuho prcrin 3hour 10min
+[IMPORT_KAKUHO_PRCRIN_3HOUR_10MIN]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -h %dbhost -p %dbport -c /usr/amoeba/tools/grib2_import/config/kakuho_3hour_10min_grib2.conf -t kakuho_prcrin_3hour_10min_grib2 %input
+LogFile=/usr/amoeba/log/PREC_KAKUHO_COMPASS/import_kakuho_prcrin_3hour_10min.log
+WaitList=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+
+# forecast input COMPASS PRISM scenario
+[IMPORT_SRF_COMPAS_SCNRO_PRISM]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -h %dbhost -p %dbport -c /usr/amoeba/tools/grib2_import/config/mip_compass_nfb_grib2.conf -t mip_compass_nfb_grib2 %input
+LogFile=/usr/amoeba/log/PREC_KAKUHO_COMPASS/import_srf_compas_scnro_prism.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_PRISM

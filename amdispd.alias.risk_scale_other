@@ -1,0 +1,29 @@
+# WNI_TABLE_DIM_CUST_INFO
+[411040113]
+JobName=WNI_TABLE_DIM_CUST_INFO
+CopyDir=/usr/amoeba/capture
+
+# WNI_TABLE_DIM_10V_SCAL_TRSHLD
+[411040114]
+JobName=WNI_TABLE_DIM_10V_SCAL_TRSHLD
+CopyDir=/usr/amoeba/capture
+
+# WNI_TABLE_DIM_AREA
+[411040115]
+JobName=RECV_WNI_TABLE_DIM_AREA
+CopyDir=/usr/amoeba/capture
+
+# WNI_TABLE_CSTMR_ACTION
+[411024583]
+JobName=WNI_TABLE_MIP_CUST_INFO
+CopyDir=/usr/amoeba/capture
+
+# WNI_TABLE_TRSHLD_VSCAL_disaster_ACTION
+[411024584]
+JobName=WNI_TABLE_MIP_10V_SCAL_TRSHLD
+CopyDir=/usr/amoeba/capture
+
+# WNI_TABLE_AREA_ACTION
+[411024585]
+JobName=RECV_WNI_TABLE_MIP_AREA
+CopyDir=/usr/amoeba/capture

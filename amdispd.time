@@ -1,0 +1,4 @@
+#
+# risk scale
+#
+3,13,23,33,43,53 * * * * : JOB : RISK_SCALE_PRCRIN_TIME_3

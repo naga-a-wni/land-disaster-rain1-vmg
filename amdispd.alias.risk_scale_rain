@@ -1,0 +1,25 @@
+# WNI Micronet 10min Precipitation
+[411000260]
+JobName=RECV_MICRONET_PRECIPITATION
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_COMPAS_SCNRO_NFB
+#[412010060]
+[412010238]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_NFB
+CopyDir=/usr/amoeba/capture
+
+# WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+[411023906]
+JobName=WNI_KAKUHO_PRCRIN_3HOUR_10MIN
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_10V_SCAL_DIM_RAIN_changed
+[411024201]
+JobName=WNI_SRF_10V_SCAL_DIM_RAIN_CHANGED
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_COMPAS_SCNRO_PRISM
+[412010061]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_PRISM
+CopyDir=/usr/amoeba/capture
