@@ -1,0 +1,156 @@
+#config.yml
+spool_dir: /usr/amoeba/spool/workspace/RD_SRFC_10V_MSM/
+srf_spool_dir: /usr/amoeba/spool/workspace/LAND_SRF_RD_2020/
+msm_change_spool: msm_change_data.pst
+fcasjp_altitude_spool: fcasjp_altitude.pst
+msm_adjust_temp_index: msm_adjust_temp_index.pst
+ecwmf_adjust_temp_index: ecwmf_adjust_temp_index.pst
+rd_table_winter_spool: RD_TABLE_10V_WINTER.pst
+msm_raw_temp_index: msm_raw_temp_index
+ecmwf_raw_temp_index: ecmwf_raw_temp_index
+change_data_spool: change_data_spool
+rawdata_expire: 5
+rawdata_expire_ecmwf: 5
+mk2_msm_table: msm_upper_rd_adjust
+mk2_ecmwf_table: ecmwf_mwf_hires
+mk2_pressure_level:
+  - "100000-ISBL"
+  - "97500-ISBL"
+  - "95000-ISBL"
+  - "92500-ISBL"
+  - "90000-ISBL"
+  - "85000-ISBL"
+  - "80000-ISBL"
+  - "70000-ISBL"
+  - "60000-ISBL"
+  - "50000-ISBL"
+mk2_pressure_level_ecmwf:
+  - "100000"
+  - "95000"
+  - "92500"
+  - "90000"
+  - "85000"
+  - "80000"
+  - "70000"
+  - "50000"
+index_temperature:
+  - 3.5
+  - 3.0
+  - 2.5
+  - 2.0
+  - 1.5
+  - 1.0
+  - 0.5
+  - 0.0
+  - -0.5
+  - -1.0
+  - -2.0
+prec_snow_ratio:
+  0.01:
+    - 0
+    - 0
+    - 0
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.5
+    - 1
+    - 1.3
+    - 1.5
+    - 1.7
+  0.1:
+    - 0
+    - 0
+    - 0
+    - 0.1
+    - 0.3
+    - 0.4
+    - 0.5
+    - 1.1
+    - 1.3
+    - 1.6
+    - 1.7
+  0.5:
+    - 0
+    - 0
+    - 0
+    - 0.1
+    - 0.3
+    - 0.4
+    - 0.6
+    - 1.1
+    - 1.3
+    - 1.6
+    - 1.8
+  1:
+    - 0
+    - 0
+    - 0
+    - 0.1
+    - 0.3
+    - 0.5
+    - 0.7
+    - 1.1
+    - 1.3
+    - 1.6
+    - 1.8
+  1.5:
+    - 0
+    - 0
+    - 0
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.1
+    - 1.4
+    - 1.7
+    - 1.8
+  2:
+    - 0
+    - 0
+    - 0
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.2
+    - 1.4
+    - 1.7
+    - 1.9
+  2.5:
+    - 0
+    - 0
+    - 0
+    - 0.2
+    - 0.5
+    - 0.7
+    - 0.9
+    - 1.2
+    - 1.4
+    - 1.7
+    - 1.9
+  3:
+    - 0
+    - 0
+    - 0
+    - 0.2
+    - 0.5
+    - 0.7
+    - 0.9
+    - 1.2
+    - 1.5
+    - 1.8
+    - 2
+prec_snow_ratio_last:
+    - 0
+    - 0
+    - 0.1
+    - 0.2
+    - 0.6
+    - 0.8
+    - 1
+    - 1.2
+    - 1.5
+    - 1.8
+    - 2

@@ -1,0 +1,31 @@
+# spool winter xml
+[SPOOL_RD_TABLE_10V_WINTER_XML]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/LAND_SRF_RD_2020/RD_TABLE_10V_WINTER.xml
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_table_10v_winter_spool.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_SNOWREMOVAL_TABLE
+
+# parse winter xml
+[PARSE_RD_TABLE_10V_WINTER_XML]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_table_10v_winter_spool.rb /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_table_10v_winter_spool.log
+WaitList=SPOOL_RD_TABLE_10V_WINTER_XML
+
+# spool summer xml
+[SPOOL_RD_TABLE_10V_SUMMER_XML]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/LAND_SRF_RD_2020/RD_TABLE_10V_SUMMER.xml
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_table_10v_summer_spool.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_ROUTEPATROL_TABLE
+
+# parse summer xml
+[PARSE_RD_TABLE_10V_SUMMER_XML]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_table_10v_summer_spool.rb /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_table_10v_summer_spool.log
+WaitList=SPOOL_RD_TABLE_10V_SUMMER_XML
+
+#------------------------
+# update msm spool index 
+#------------------------
+[UPDATE_RD_TABLE_10V_WINTER_XML]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_temp_index.rb -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_temp_index.log
+WaitList=PARSE_RD_TABLE_10V_WINTER_XML

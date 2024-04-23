@@ -1,0 +1,50 @@
+#------------------------
+# msm upper import to mk2
+#------------------------
+[MSM_UPPER_t%BASETIMEz_T%FT_Import]
+Command=/usr/amoeba/tools/grib2_import/bin/grib2_import -c /usr/amoeba/tools/grib2_import/config/msm_upper_rd_adjust.conf -h localhost -p 11112 -t msm_upper_rd_adjust %input | grep 'writing'
+LogFile=/usr/amoeba/log/LAND_C3OP_MSM/msm_upper_import.log
+WaitList=MSM_UPPER_t%BASETIMEz_T%FT
+FcstTimeList=00,18,36
+BaseTimeList=00,03,06,09,12,15,18,21
+FcstTimeFormat=%02d
+BaseTimeFormat=%02d
+TimeOut=14400
+#
+# msm upper all ft import to mk2 is finished
+#
+[MSM_t%BASETIMEz_Import]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_temp_index.rb -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_temp_index.log
+WaitList=MSM_UPPER_t%BASETIMEz_T00_Import,MSM_UPPER_t%BASETIMEz_T18_Import,MSM_UPPER_t%BASETIMEz_T36_Import
+BaseTimeList=00,03,06,09,12,15,18,21
+BaseTimeFormat=%02d
+TimeOut=14400
+#------------------------
+# FCASJP.xml RU header cut
+#------------------------
+[SPOOL_FCASJP_XML]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/ruheadercut2.rb %input /usr/amoeba/spool/workspace/RD_SRFC_10V_MSM/FCASJP.xml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/import_fcasjp_xml.log
+WaitList=RECV_FCASJP_XML
+#
+# convert FCASJP.xml
+#
+[CONVERT_FCASJP_XML]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/spool_asm_altitude.rb /usr/amoeba/spool/workspace/RD_SRFC_10V_MSM/FCASJP.xml /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/import_fcasjp_xml.log
+WaitList=SPOOL_FCASJP_XML
+#
+# update msm spool index
+#
+[UPDATE_FCASJP_XML]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_temp_index.rb -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_temp_index.log
+WaitList=CONVERT_FCASJP_XML
+#
+# update ecmwf spool index
+#
+[UPDATE_ECMWF_TEMPERATURE_INDEX]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_ecmwf_temp_index.rb -s -h sky-focs3-vmg.wni.co.jp /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_ecmwf_temp_index.log
+WaitList=TIME_EVENT_ECMWF_TEMPERATURE_INDEX

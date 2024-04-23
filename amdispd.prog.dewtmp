@@ -1,0 +1,29 @@
+# spool WNI_SRF_ASM_DEWTMP_OWN
+[SPOOL_RD_10V_OWN_DEWTMP]
+Command=/usr/amoeba/tools/SPOOL_DEW_POINT/scripts/spool_dew_point.rb /usr/amoeba/tools/SPOOL_DEW_POINT/config/config.yml %input
+LogFile=/usr/amoeba/log/SPOOL_DEW_POINT/spool_asm_dewtmp.log
+WaitList=RECV_WNI_SRF_ASM_DEWTMP_OWN
+
+# spool WNI_SRF_ASM_DEWTMP_MSM
+[SPOOL_RD_10V_MSM_DEWTMP]
+Command=/usr/amoeba/tools/SPOOL_DEW_POINT/scripts/spool_dew_point.rb /usr/amoeba/tools/SPOOL_DEW_POINT/config/config.yml %input
+LogFile=/usr/amoeba/log/SPOOL_DEW_POINT/spool_asm_dewtmp.log
+WaitList=RECV_WNI_SRF_ASM_DEWTMP_MSM
+
+# spool WNI_SRF_ASM_DEWTMP_GSM
+[SPOOL_RD_10V_GSM_DEWTMP]
+Command=/usr/amoeba/tools/SPOOL_DEW_POINT/scripts/spool_dew_point.rb /usr/amoeba/tools/SPOOL_DEW_POINT/config/config.yml %input
+LogFile=/usr/amoeba/log/SPOOL_DEW_POINT/spool_asm_dewtmp.log
+WaitList=RECV_WNI_SRF_ASM_DEWTMP_GSM
+
+# spool WNI_SRF_ASM_DEWTMP_GFS
+[SPOOL_RD_10V_GFS_DEWTMP]
+Command=/usr/amoeba/tools/SPOOL_DEW_POINT/scripts/spool_dew_point.rb /usr/amoeba/tools/SPOOL_DEW_POINT/config/config.yml %input
+LogFile=/usr/amoeba/log/SPOOL_DEW_POINT/spool_asm_dewtmp.log
+WaitList=RECV_WNI_SRF_ASM_DEWTMP_GFS
+
+# spool WNI_SRF_ASM_DEWTMP_MSM_RU_2
+[SPOOL_RD_10V_MSM_DEWTMP_RU_2]
+Command=/usr/amoeba/tools/SPOOL_DEW_POINT/scripts/spool_dew_point_2.rb /usr/amoeba/tools/SPOOL_DEW_POINT/config/config.yml %input
+LogFile=/usr/amoeba/log/SPOOL_DEW_POINT/spool_asm_dewtmp.log
+WaitList=RECV_WNI_SRF_ASM_DEWTMP_MSM_RU_2

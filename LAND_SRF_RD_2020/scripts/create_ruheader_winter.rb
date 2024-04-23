@@ -1,0 +1,85 @@
+#
+# RD短期10V-raw 寒候期用共通ruヘッダを作成する関数
+# input -
+#   announced  : 発表時間
+#   dataid16   : 16桁ID
+#   data_name  : データ名
+#
+# output -
+#   rhd   : ruヘッダ
+#
+def create_ruheader_winter(announced,dataid16,data_name)
+  format =
+    "announced_date:"                                   +
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "source:INT8,"                                      + # 生成元データ  生:0、夏:1、冬:2
+    "created_date:"                                     + # 配信時刻
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "send_date:"                                        + # 配信時刻
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "created_by:STR,"                                   + # 配信ユーザ名
+    "ZONE_count:INT16,"                                 +
+    "ZONE_data:{ZONE_count}"                            +
+    "["                                                 +
+    "ZONE:STR,"                                         + # 寒候期中区間番号（雪氷体制予測区間）
+    "MAX_10V_DEF:INT16,"                                + # 10V定義の最大値 iHighway対応
+    "ASM_ID:STR,"                                       + # 中区間の代表雨量局ASMID（現テーブルのASM_ID_daihyo）
+    "BRG_SIL_flg:INT8,"                                 + # 橋が１、土が２、推定値(路観なし)は３
+    "FT:INT16,"                                         +
+    "FCAS:{FT}"                                         +
+    "["                                                 +
+    "FCASD:"                                            +
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "WX:INT16,"                                         + # 天気 整数値
+    "PRCRIN_1HOUR_TOTAL:INT16,"                         + # 降水量 mm
+    "AIRTMP:FLOAT32,"                                   + # 気温 ℃
+    "SNWFLL_1HOUR_TOTAL:INT16,"                         + # 降雪量 cm
+    "WNDSPD:FLOAT32,"                                   + # 風速 m/sec
+    "WNDDIR:INT8,"                                      + # 風向 16方位
+    "RDCND:INT8,"                                       + # 路面状態 0:乾,1:湿,2:シャ,3:圧,4:凍
+    "RDTMP:FLOAT32,"                                    + # 路温 ℃
+    "DEWTMP:FLOAT32,"                                   + # 露点温度 ℃
+    "SSTMI:INT8,"                                       + # 吹雪指数 0:なし,1:弱,2:中,3強
+    "GUSTS:FLOAT32,"                                    + # 瞬間風速
+    "WIND_VSCAL:INT16"                                  + # 10V(風) 整数値
+    "],"                                                +
+    "DAYTM_NIGHT_count:INT16,"                          +
+    "DAYTM_NIGHT:{DAYTM_NIGHT_count}"                   +
+    "["                                                 +
+    "DAYTM_NIGHT_BEGIND:"                               + # 昼夜定義の開始日
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "DAYTM_NIGHT_ENDD:"                                 + # 昼夜定義の終了日
+    "["                                                 +
+    "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
+    "],"                                                +
+    "VSCAL:INT16,"                                      + # 10V(寒候期) 整数値
+    "NOPRFZ_VSCAL:INT16,"                               + # 10V(無降水) 整数値
+    "DAYTM_NIGHT_flg:INT8"                              + # 0:日中,1:夜間 整数値
+    "]"                                                 +
+    "]"
+  rhd = WniHeader.new
+  rhd.validate(true)
+  rhd.header_version = '1'
+  rhd.data_name      = data_name
+  rhd.global_id      = dataid16[0,4]
+  rhd.category       = dataid16[4,4]
+  rhd.data_id        = dataid16[8,16]
+  rhd.created_date   = Time.now
+  rhd.announced_date = announced
+  rhd.revision       = '1'
+  rhd.compress_type  = 'gzip'
+  rhd.header_comment = data_name
+  rhd.data_size      = 0
+  rhd.format         = format
+  return rhd
+end

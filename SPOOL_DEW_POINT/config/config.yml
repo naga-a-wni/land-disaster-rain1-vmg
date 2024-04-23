@@ -1,0 +1,16 @@
+#config.yml
+zone_path: /usr/amoeba/spool/workspace/SPOOL_DEW_POINT/RD_ZONE.pst
+spool_path: /usr/amoeba/spool/workspace/SPOOL_DEW_POINT/
+spool_avg: avg_dew_zone.dmp
+spool_own: own_dew_zone.dmp
+spool_msm: msm_dew_zone.dmp
+spool_gsm: gsm_dew_zone.dmp
+spool_gfs: gfs_dew_zone.dmp
+merge_models:
+  - OWN
+  - MSM
+  - GSM
+  - GFS
+spool_new: new_dew_zone.dmp
+dewtmp_max: 700
+dewtmp_min: -1000

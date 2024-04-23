@@ -1,0 +1,168 @@
+#
+# RD体制判断10V用 短期COMPASS 30%パーセンタイル
+#
+[411024529]
+JobName=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 40%パーセンタイル
+#
+[411024528]
+JobName=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 50%パーセンタイル
+#
+[411024527]
+JobName=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+CopyDir=/usr/amoeba/capture
+#
+# 冬テーブル 運用系
+#
+[431010207]
+JobName=RECV_WNI_SRF_VSCAL_RD_SNOWREMOVAL_TABLE
+CopyDir=/usr/amoeba/capture
+#
+# 夏テーブル 運用系
+#
+[431010206]
+JobName=RECV_WNI_SRF_VSCAL_RD_ROUTEPATROL_TABLE
+CopyDir=/usr/amoeba/capture
+#
+# 冬テーブル 開発系
+#
+[431010209]
+JobName=RECV_WNI_SRF_VSCAL_RD_SNOWREMOVAL_TABLE_DEV
+CopyDir=/usr/amoeba/capture
+#
+# 夏テーブル 開発系
+#
+[431010208]
+JobName=RECV_WNI_SRF_VSCAL_RD_ROUTEPATROL_TABLE_DEV
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 20%パーセンタイル
+#
+[411024588]
+JobName=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_20
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ メリハリ雪データ(Main 30%)
+#
+[411024679]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 10%パーセンタイル
+#
+[411024713]
+JobName=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_10
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak1_Main20%
+#
+[412010210]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main20
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak5_Main20%
+#
+[412010211]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main20
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak1_Main30%
+#
+[412010212]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main30
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak5_Main30%
+#
+[412010213]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main30
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak1_Main40%
+#
+[412010216]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main40
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak1_Main50%
+#
+[412010217]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main50
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak5_Main40%
+#
+[412010218]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main40
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS Peak5_Main50%
+#
+[412010219]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main50
+CopyDir=/usr/amoeba/capture
+#
+# 類似日COMPASS(日本域)
+#
+[411024753]
+JobName=RECV_WNI_SRF_COMPAS_analogos_JP
+CopyDir=/usr/amoeba/capture
+#
+# 類似日COMPASS(北海道域)
+#
+[411024754]
+JobName=RECV_WNI_SRF_COMPAS_analogos_HOK
+CopyDir=/usr/amoeba/capture
+#
+# 気圧配置フィルターCOMPASS
+#
+[411024758]
+JobName=RECV_WNI_SRF_COMPAS_pressure_pattern
+CopyDir=/usr/amoeba/capture
+#
+# 気圧配置フィルターCOMPASS 夏版 (RU)
+#
+[411024831]
+JobName=RECV_WNI_SRF_COMPAS_SMMR_pressure_pattern
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ メリハリ雪データ(Main 20%)
+#
+[411024882]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_20
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ メリハリ雪データ(Main 40%)
+#
+[411024883]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ メリハリ雪データ(Main 50%)
+#
+[411024884]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ メリハリ雪データ(Main 60%)
+#
+[411024885]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_60
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 60%パーセンタイル
+#
+[411024900]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 80%パーセンタイル
+#
+[411024901]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80
+CopyDir=/usr/amoeba/capture

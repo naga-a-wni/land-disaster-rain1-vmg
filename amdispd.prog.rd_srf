@@ -1,0 +1,278 @@
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(30%）
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_30]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024529 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_30.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+NelsonID=411024609
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(30%）MSM補正ver
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_MSM_30]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024529 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_30.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+#
+[MAKE_RD_SRFC_10V_RAW_winter_30_MSMver]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024529 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_30.log
+WaitList=MAKE_RD_SRFC_10V_MSM_30,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+TimeOut=3600
+NelsonID=411024936
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(40%）
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_40]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024528 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_40.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+NelsonID=411024610
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(40%）MSM補正ver
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_MSM_40]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024528 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_40.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+#
+[MAKE_RD_SRFC_10V_RAW_winter_40_MSMver]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024528 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_40.log
+WaitList=MAKE_RD_SRFC_10V_MSM_40,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+TimeOut=3600
+NelsonID=411024942
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(50%）
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_50]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024527 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_50.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+NelsonID=411024611
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(50%）MSM補正ver
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_MSM_50]
+Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024527 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_50.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+#
+[MAKE_RD_SRFC_10V_RAW_winter_50_MSMver]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024527 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_50.log
+WaitList=MAKE_RD_SRFC_10V_MSM_50,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+TimeOut=3600
+NelsonID=411024943
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(20%）
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024588 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_20.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_20
+NelsonID=411024627
+#-------------------------------------------------------
+# RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 30%) 
+#-------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_heavysnow]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024679 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_heavysnow.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow
+NelsonID=411024681
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(10%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_10]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024713 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_10.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_10
+NelsonID=411024699
+#-----------------------------------------------
+# RD雪氷判断支援(短期)類似日COMPASS(日本域)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_analogos_JP]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024753 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_analogos_JP.log
+WaitList=RECV_WNI_SRF_COMPAS_analogos_JP
+NelsonID=411024755
+#-----------------------------------------------
+# RD雪氷判断支援(短期)類似日COMPASS(北海道域)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_analogos_HOK]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024754 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_analogos_HOK.log
+WaitList=RECV_WNI_SRF_COMPAS_analogos_HOK
+NelsonID=411024756
+#-----------------------------------------------
+# RD雪氷判断支援(短期)気圧配置フィルターCOMPASS
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_pressure_pattern]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024758 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_pressure_pattern.log
+WaitList=RECV_WNI_SRF_COMPAS_pressure_pattern
+NelsonID=411024761
+
+#-------------------------------------------------------
+# RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 20%)-
+#-------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024882 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_20.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_20
+NelsonID=411024905
+#-------------------------------------------------------
+# RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 40%)-
+#-------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_40]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024883 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_40.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_40
+NelsonID=411024906
+#-------------------------------------------------------
+# RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 50%)-
+#-------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_50]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024884 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_50.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
+NelsonID=411024907
+#-------------------------------------------------------
+# RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 60%)-
+#-------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_60]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024885 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_60.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_60
+NelsonID=411024908
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(60%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_60]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024900 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_60.log
+WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60
+NelsonID=411024909
+#-----------------------------------------------
+# RD雪氷判断支援(短期)COMPASS(80%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_winter_80]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -t 411024901 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_80.log
+WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80
+NelsonID=411024910
+
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期)COMPASS(30%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_30]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024529 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_30.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+NelsonID=411024616
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期)COMPASS(40%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_40]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024528 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_40.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+NelsonID=411024617
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期)COMPASS(50%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_50]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024527 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_50.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+NelsonID=411024618
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期)COMPASS(20%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024588 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_20.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_20
+NelsonID=411024628
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期)COMPASS(10%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_10]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024713 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_10.log
+WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_10
+NelsonID=411024700
+
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak1%,Main20%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak1_main20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010210 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main20.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main20
+NelsonID=411024701
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak5%,Main20%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak5_main20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010211 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main20.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main20
+NelsonID=411024702
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak1%,Main30%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak1_main30]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010212 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main30.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main30
+NelsonID=411024703
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak5%,Main30%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak5_main30]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010213 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main30.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main30
+NelsonID=411024704
+
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak1%,Main40%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak1_main40]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010216 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main40.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main40
+NelsonID=411024730
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak1%,Main50%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak1_main50]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010217 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main50.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main50
+NelsonID=411024731
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak5%,Main40%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak5_main40]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010218 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main40.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main40
+NelsonID=411024732
+#-----------------------------------------------
+# RD通行規制可否判断支援(短期,Peak5%,Main50%)
+#-----------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_peak5_main50]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010219 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main50.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main50
+NelsonID=411024733
+#---------------------------------------------------------
+# 通行規制可否判断支援(短期)気圧配置フィルターCOMPASS夏版 
+#---------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_pressure_pattern]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024831 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_pressure_pattern.log
+WaitList=RECV_WNI_SRF_COMPAS_SMMR_pressure_pattern
+NelsonID=411024835

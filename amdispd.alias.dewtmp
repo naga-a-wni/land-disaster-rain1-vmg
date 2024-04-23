@@ -1,0 +1,24 @@
+# WNI_SRF_ASM_DEWTMP_OWN
+[411023266]
+JobName=RECV_WNI_SRF_ASM_DEWTMP_OWN
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_ASM_DEWTMP_MSM
+[411023267]
+JobName=RECV_WNI_SRF_ASM_DEWTMP_MSM
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_ASM_DEWTMP_GSM
+[411023268]
+JobName=RECV_WNI_SRF_ASM_DEWTMP_GSM
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_ASM_DEWTMP_GFS
+[411023269]
+JobName=RECV_WNI_SRF_ASM_DEWTMP_GFS
+CopyDir=/usr/amoeba/capture
+
+# WNI_SRF_ASM_DEWTMP_MSM_RU_2
+[411024106]
+JobName=RECV_WNI_SRF_ASM_DEWTMP_MSM_RU_2
+CopyDir=/usr/amoeba/capture
