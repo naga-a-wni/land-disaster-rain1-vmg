@@ -166,7 +166,7 @@ NelsonID=411024910
 # RD通行規制可否判断支援(短期)COMPASS(30%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_30]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024529 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024529 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_30.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
 NelsonID=411024616
@@ -174,7 +174,7 @@ NelsonID=411024616
 # RD通行規制可否判断支援(短期)COMPASS(40%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_40]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024528 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024528 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_40.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
 NelsonID=411024617
@@ -182,7 +182,7 @@ NelsonID=411024617
 # RD通行規制可否判断支援(短期)COMPASS(50%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_50]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024527 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024527 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_50.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
 NelsonID=411024618
@@ -190,7 +190,7 @@ NelsonID=411024618
 # RD通行規制可否判断支援(短期)COMPASS(20%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024588 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024588 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_20.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_20
 NelsonID=411024628
@@ -198,7 +198,7 @@ NelsonID=411024628
 # RD通行規制可否判断支援(短期)COMPASS(10%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_10]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024713 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024713 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_10.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_10
 NelsonID=411024700
@@ -207,7 +207,7 @@ NelsonID=411024700
 # RD通行規制可否判断支援(短期,Peak1%,Main20%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak1_main20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010210 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010210 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main20.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main20
 NelsonID=411024701
@@ -215,7 +215,7 @@ NelsonID=411024701
 # RD通行規制可否判断支援(短期,Peak5%,Main20%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak5_main20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010211 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010211 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main20.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main20
 NelsonID=411024702
@@ -223,7 +223,7 @@ NelsonID=411024702
 # RD通行規制可否判断支援(短期,Peak1%,Main30%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak1_main30]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010212 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010212 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main30.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main30
 NelsonID=411024703
@@ -231,7 +231,7 @@ NelsonID=411024703
 # RD通行規制可否判断支援(短期,Peak5%,Main30%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak5_main30]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010213 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010213 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main30.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main30
 NelsonID=411024704
@@ -240,7 +240,7 @@ NelsonID=411024704
 # RD通行規制可否判断支援(短期,Peak1%,Main40%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak1_main40]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010216 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010216 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main40.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main40
 NelsonID=411024730
@@ -248,7 +248,7 @@ NelsonID=411024730
 # RD通行規制可否判断支援(短期,Peak1%,Main50%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak1_main50]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010217 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010217 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak1_main50.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak1_main50
 NelsonID=411024731
@@ -256,7 +256,7 @@ NelsonID=411024731
 # RD通行規制可否判断支援(短期,Peak5%,Main40%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak5_main40]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010218 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010218 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main40.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main40
 NelsonID=411024732
@@ -264,7 +264,7 @@ NelsonID=411024732
 # RD通行規制可否判断支援(短期,Peak5%,Main50%)
 #-----------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_peak5_main50]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 412010219 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010219 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_summer_peak5_main50.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_peak5_main50
 NelsonID=411024733
@@ -272,7 +272,7 @@ NelsonID=411024733
 # 通行規制可否判断支援(短期)気圧配置フィルターCOMPASS夏版 
 #---------------------------------------------------------
 [MAKE_RD_SRFC_10V_RAW_summer_pressure_pattern]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h pt-gpec-zf7-vmg.wni.co.jp -t 411024831 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411024831 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_pressure_pattern.log
 WaitList=RECV_WNI_SRF_COMPAS_SMMR_pressure_pattern
 NelsonID=411024835
