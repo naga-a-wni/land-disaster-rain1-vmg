@@ -98,7 +98,7 @@ def read_compass(compass, pary)
       savedata[vt][point] = max.truncate
     }
   end
-  return savedata
+  return savedata, created
 end
 
 begin
@@ -131,13 +131,25 @@ begin
   # read GRIB2
   #
   compass = ARGV[0]
-  savedata = read_compass(compass, pary)
+  savedata, created = read_compass(compass, pary)
 #  savedata.each_pair{|ft,pointdata|
 #    print "%s=[%s]\n" % [ ft.to_s, pointdata.values.join(',') ]
 #  }
   dbdata = PStore.new($config["spool_compas_path"])
   dbdata.transaction() do
     dbdata['root'] = savedata
+  end
+  if $config["created_compas_path"] != nil
+    dbdata = PStore.new($config["created_compas_path"])
+    dbdata.transaction() do
+      created_data = dbdata['root']
+      if created_data == nil
+        created_data = {}
+      end
+      created_data["start"] = Time.now
+      created_data["created"] = created
+      dbdata['root'] = created_data
+    end
   end
   $log.write("***** proc end normally *****")
 rescue => e

@@ -116,6 +116,18 @@ def main()
     print "table_area spool data not exist\n"
     exit
   end
+  if $config["created_compas_path"] != nil
+    dbdata = PStore.new($config["created_compas_path"])
+    dbdata.transaction() do
+      created_data = dbdata['root']
+      if created_data != nil
+        if created_data["start"] -Time.now < 60 * 5
+          created_data["latest"] = created_data["created"]
+          dbdata['root'] = created_data
+        end
+      end
+    end
+  end
   pary = $marshal_data.keys.sort
   mkConn = MkConnection.new( host, port )
   city_hour( mkConn, pary, debugtime )

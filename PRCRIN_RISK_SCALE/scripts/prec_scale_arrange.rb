@@ -331,7 +331,7 @@ def get_mk2_scale(mkConn, announcetime)
   params = []
   time_list.each{|btime|
     # FT0-FT3だけ
-    for ft in 0..3
+    for ft in 0..$config["scale_arrange_nowcast"]
       params.push(MkDataParam.new(ft, '0', btime))
     end
   }
@@ -447,7 +447,7 @@ def scale_arrange(announcetime,ref,mkConn)
     for j in 0...area_count
       area_id = ref["customer_data"][i]["area_data"][j]["area_id"]
       pointid = customer_id + "-" + area_id
-      for k in 0..3
+      for k in 0..$config["scale_arrange_nowcast"]
         if new_ft_scale[k] == nil
           new_ft_scale[k] = {}
         end

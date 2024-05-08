@@ -101,6 +101,9 @@ $threshold_level_near = {}
 # [point_id][level][i][j] = mnetid
 $pointid_mnetid_near = {}
 
+# COMPASSのcreated
+$compass_created = {}
+
 def usage
 puts <<EOF
   Usage: #{__FILE__} [OPTION] <config> <groupid>
@@ -574,6 +577,11 @@ def make_rufile( announcetime, justtime, output_path, mkConn )
   # 全FTの最大スケールを取得
   get_max_scale(ref)
   # 411024200配信
+  if $mip
+    if $compass_created["latest"] != nil
+      gen.header.created_date   = $compass_created["latest"]
+    end
+  end
   raw_tagid = $mip ? 411024551 : 411024200
   am = Amdeliver.new()
   deliver_ru(gen,am,raw_tagid,output_path)
@@ -588,7 +596,11 @@ def make_rufile( announcetime, justtime, output_path, mkConn )
     gen.header.global_id      = dataid16[0,4]
     gen.header.category       = dataid16[4,4]
     gen.header.data_id        = dataid16[8,16]
-    gen.header.created_date   = Time.now
+    if $compass_created["latest"] != nil
+      gen.header.created_date   = $compass_created["latest"]
+    else
+      gen.header.created_date   = Time.now
+    end
     # 411024202配信
     deliver_ru(gen,am,edit_tagid,output_path)
   end
@@ -659,6 +671,13 @@ def main()
   dbdata = PStore.new($config["rain_group_count"])
   dbdata.transaction() do
     $group_count = dbdata['root']
+  end
+  # COMPASSのcreated
+  if $config["created_compas_path"] != nil
+    dbdata = PStore.new($config["created_compas_path"])
+    dbdata.transaction() do
+      $compass_created = dbdata['root']
+    end
   end
   #
   # mk2データの参照
