@@ -542,13 +542,13 @@ def main()
   usage() if(ARGV.size < 2)
   $config = YAML.load_file(ARGV[0])
   $log =  LogWrite.new(logfile)
-  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_winter"])
   if input_tagid == "" || $config[input_tagid] == nil
     $log.write("input_tagid=%s not supported." % [input_tagid])
     return
   else
     $output_ids = $config[input_tagid]
   end
+  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_winter"][input_tagid])
 #  if $c3op
 #    if input_tagid != "411024529"
 #      $log.write("msm input_tagid=%s not supported." % [input_tagid])

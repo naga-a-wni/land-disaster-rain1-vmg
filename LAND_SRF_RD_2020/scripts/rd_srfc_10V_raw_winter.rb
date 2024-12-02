@@ -543,7 +543,6 @@ def main()
   usage() if(ARGV.size < 2)
   $config = YAML.load_file(ARGV[0])
   $log =  LogWrite.new(logfile)
-  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_winter"])
   if input_tagid == "" || $config[input_tagid] == nil
     $log.write("input_tagid=%s not supported." % [input_tagid])
     return
@@ -556,6 +555,7 @@ def main()
       return
     end
   end
+  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_winter"][input_tagid])
   $log.write("spool data read start.")
   # 寒候期テーブルのスプールを読む
   dbdata = PStore.new($config["spool_dir"] + $config["rd_table_winter_spool"])

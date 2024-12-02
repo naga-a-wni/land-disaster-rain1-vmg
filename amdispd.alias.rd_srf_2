@@ -1,0 +1,132 @@
+#
+# RDシナリオ メリハリ雪データ（気圧配置）
+#
+[411026101]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_pressure_pattern
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・OWNゼロ雪フィルタ（Main 40%）
+#
+[411026102]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・OWNゼロ雪フィルタ（Main 30%）
+#
+[411026103]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・OWNゼロ雪フィルタ（気圧配置）
+#
+[411026104]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_pressure_pattern
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・MSM 降水相フィルタ（Main 40%）
+#
+[411026105]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_msmphase_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・MSM 降水相フィルタ（Main 30%）
+#
+[411026106]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_msmphase_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・OWNゼロ雪・MSM 降水相フィルタ（Main 40%）
+#
+[411026107]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_msmphase_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 メリハリ・OWNゼロ雪・MSM 降水相フィルタ（Main 30%）
+#
+[411026108]
+JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_msmphase_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 OWNゼロ雪フィルタ（Main 40%）
+#
+[411026109]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 OWNゼロ雪フィルタ（Main 30%）
+#
+[411026110]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 OWNゼロ雪フィルタ（Main 20%）
+#
+[411026111]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_20
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ2024冬期 OWNゼロ雪フィルタ（気圧配置）
+#
+[411026112]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_pressure_pattern
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 MSM 降水相 フィルタ (Main 50%)
+#
+[411026113]
+JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_50
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 MSM 降水相 フィルタ (Main 40%)
+#
+[411026114]
+JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 MSM 降水相 フィルタ (Main 30%)
+#
+[411026115]
+JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 MSM 降水相 フィルタ (Main 20%)
+#
+[411026116]
+JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_20
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 50%)
+#
+[411026117]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_50
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 40%)
+#
+[411026118]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 30%)
+#
+[411026119]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_30
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 20%)
+#
+[411026120]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_20
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・OWN 降水相 フィルタ (Main 40%)
+#
+[411026121]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_ownphase_40
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ 2024冬期 OWNゼロ雪・OWN 降水相 フィルタ (Main 30%)
+#
+[411026122]
+JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_ownphase_30
+CopyDir=/usr/amoeba/capture
