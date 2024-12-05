@@ -38,6 +38,11 @@ def read_summer_ru(input_data)
   summer_data["ZONE_data"] = {}
   # 入力ファイル読み込み
   gr = GenRw.open(input_data)
+  rhd = gr.get_header_copy
+  if rhd.format.index("SOIL") == nil
+    $old_format = true
+    $log.write("soil prec not exist in inputdata.")
+  end
   refr = gr.get_value_ref
   summer_data["announced_date"] = refr["announced_date"].get_value_time
   summer_data["created_date"] = refr["created_date"].get_value_time

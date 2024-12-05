@@ -109,15 +109,15 @@ CopyDir=/usr/amoeba/capture
 #
 # 類似日COMPASS(日本域)
 #
-[411024753]
-JobName=RECV_WNI_SRF_COMPAS_analogos_JP
-CopyDir=/usr/amoeba/capture
+#[411024753]
+#JobName=RECV_WNI_SRF_COMPAS_analogos_JP
+#CopyDir=/usr/amoeba/capture
 #
 # 類似日COMPASS(北海道域)
 #
-[411024754]
-JobName=RECV_WNI_SRF_COMPAS_analogos_HOK
-CopyDir=/usr/amoeba/capture
+#[411024754]
+#JobName=RECV_WNI_SRF_COMPAS_analogos_HOK
+#CopyDir=/usr/amoeba/capture
 #
 # 気圧配置フィルターCOMPASS
 #
@@ -151,9 +151,9 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ メリハリ雪データ(Main 60%)
 #
-[411024885]
-JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_60
-CopyDir=/usr/amoeba/capture
+#[411024885]
+#JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_60
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 60%パーセンタイル
 #

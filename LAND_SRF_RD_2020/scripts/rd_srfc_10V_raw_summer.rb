@@ -18,6 +18,8 @@ require 'get_obs_prec_integ.rb'
 require 'adjust_elements.rb'
 require 'get_scale_summer.rb'
 require 'lock_and_wait.rb'
+require 'get_fcst_soil_prec_index.rb'  # 土壌雨量指数
+require 'get_soilprec_scale.rb'        # 土壌雨量指数
 
 $config = nil
 $log = nil
@@ -37,6 +39,9 @@ $level3_time_list = nil
 # 連続雨量最終更新時刻
 # latest_time_list[tagid] = btime
 $latest_time_list = nil
+# 雨量局とCL基準値の紐づけ情報
+# $soilprec_threshold_info[小区間][雨量局][level][[x,y],[x,y],[x,y],...]
+$soilprec_threshold_info = {}
 
 # 入力データの欠測値はすべて-9999
 LACK_VALUE_16 = -9999
@@ -76,9 +81,7 @@ def make_summer_ru(ru_data)
     $rd_table_summer["zone_elements"].each_pair{|zone_id,zdata|
       zdata["SMALL_ZONE"].each_pair{|small_zone,szdata|
         szdata["RAIN_POINT"].each_pair{|rain_point,table_rain_point|
-          if table_rain_point["second_flag"] == 1
-            mk2_rid_list.push(MkPoint.new( rain_point ))
-          end
+          mk2_rid_list.push(MkPoint.new( rain_point ))
         }
       }
     }
@@ -125,6 +128,7 @@ def make_summer_ru(ru_data)
       refw_zone["FCAS"][j]["FCASD"].set_value_time(ft)
       refw_zone["FCAS"][j]["RAIN_VSCAL"] = LACK_VALUE_16  # 10V_雨 整数値
       refw_zone["FCAS"][j]["WIND_VSCAL"] = LACK_VALUE_16  # 10V_風 整数値
+      refw_zone["FCAS"][j]["SOILP_VSCAL"] = LACK_VALUE_16 # 10V_雨(土壌雨量指数) 整数値
     end
     small_zids = $rd_table_summer["zone_elements"][zone_id]["SMALL_ZONE"].keys.sort
     small_zone_count = small_zids.size
@@ -142,6 +146,7 @@ def make_summer_ru(ru_data)
         refw_smallz["FCAS"][k]["FCASD"].set_value_time(ft)
         refw_smallz["FCAS"][k]["RAIN_VSCAL"] = LACK_VALUE_16  # 10V_雨 整数値
         refw_smallz["FCAS"][k]["WIND_VSCAL"] = LACK_VALUE_16  # 10V_風 整数値
+        refw_smallz["FCAS"][k]["SOILP_VSCAL"] = LACK_VALUE_16 # 10V_雨(土壌雨量指数) 整数値
         refw_smallz["FCAS"][k]["second_flag"] = 0 # 第２通行止め基準対象期間【0,1】 202205
         refw_smallz["FCAS"][k]["use_second"] = 0  # 第２通行止め基準適用期間【0,1】 202205
       end
@@ -186,6 +191,13 @@ def make_summer_ru(ru_data)
           end
           small_zone_save[rain_point] = {}
         end
+        # 土壌雨量指数サポート
+        soil_prec_lvldata = {}
+        if $soilprec_threshold_info != nil && $soilprec_threshold_info[small_zone] != nil && $soilprec_threshold_info[small_zone][rain_point] != nil && $soilprec_threshold_info[small_zone][rain_point].size > 0
+          $soilprec_threshold_info[small_zone][rain_point].each_pair{|lvl,prms|
+            soil_prec_lvldata[lvl] = prms
+          }
+        end
         # 雨量局データ
         refw_smallz["point_data"][point_count]["BRG_SIL_flg"] = ru_data["point_data"][asm_id_rp]["SOIL_or_BRG"]  # 橋が１、土が２、推定値(路観なし)は３
         refw_smallz["point_data"][point_count]["judge_type"] = judge_type  # 判定種別【1,2,3】 1：雨2：風3：雨と風
@@ -229,6 +241,8 @@ def make_summer_ru(ru_data)
         end
         observation_time = nil
         reset_flag = false
+        s_index = 0               # 土壌雨量指数
+        ds = [0,0,0]              # 土壌雨量指数
         # 雨量局1時間データ生成
         for l in 0...fcst_count  # FTループ 202205
           ft = ru_data["point_data"][asm_id_rp]["FCST"][l]["FCSTD"]
@@ -269,7 +283,7 @@ def make_summer_ru(ru_data)
             }
           end
           #
-          # 時間降水量、連続雨量
+          # 時間降水量、連続雨量、土壌雨量指数
           #
           prcrin_1hour_total = ru_data["point_data"][asm_id_rp]["FCST"][l]["PRCRIN_1HOUR_TOTAL"].round
           if obs_flag
@@ -297,6 +311,18 @@ def make_summer_ru(ru_data)
                 if obs_prec_integ[ft][mk2_pointid]["SecondTime"] > 0                                              # 202205
                   prcrin_prst_second_t = Time.at(obs_prec_integ[ft][mk2_pointid]["SecondTime"])                   # 202205
                 end                                                                                               # 202205
+                if obs_prec_integ[ft][mk2_pointid]["S_index"] > 0
+                  s_index = obs_prec_integ[ft][mk2_pointid]["S_index"]               # 土壌雨量指数
+                end
+                if obs_prec_integ[ft][mk2_pointid]["SoilPrec_s1"] > 0
+                  ds[0] = obs_prec_integ[ft][mk2_pointid]["SoilPrec_s1"] / 10.0      # 土壌雨量指数
+                end
+                if obs_prec_integ[ft][mk2_pointid]["SoilPrec_s2"] > 0
+                  ds[1] = obs_prec_integ[ft][mk2_pointid]["SoilPrec_s2"] / 10.0      # 土壌雨量指数
+                end
+                if obs_prec_integ[ft][mk2_pointid]["SoilPrec_s3"] > 0
+                  ds[2] = obs_prec_integ[ft][mk2_pointid]["SoilPrec_s3"] / 10.0      # 土壌雨量指数
+                end
               else
                 # 実況値連続雨量なし
                 if ft <= ho_just
@@ -334,6 +360,19 @@ def make_summer_ru(ru_data)
                     end
                     if prcrin_prst_p <= 0
                       a_flag = true
+                    end
+                    # 土壌雨量指数
+                    if precinteg[8] > 0
+                      s_index = precinteg[8]
+                    end
+                    if precinteg[9] > 0
+                      ds[0] = precinteg[9] / 10.0
+                    end
+                    if precinteg[10] > 0
+                      ds[1] = precinteg[10] / 10.0
+                    end
+                    if precinteg[11] > 0
+                      ds[2] = precinteg[11] / 10.0
                     end
                   end
                   obs_flag = false
@@ -376,6 +415,19 @@ def make_summer_ru(ru_data)
                   end
                   if prcrin_prst_p <= 0
                     a_flag = true
+                  end
+                  # 土壌雨量指数
+                  if precinteg[8] > 0
+                    s_index = precinteg[8]
+                  end
+                  if precinteg[9] > 0
+                    ds[0] = precinteg[9] / 10.0
+                  end
+                  if precinteg[10] > 0
+                    ds[1] = precinteg[10] / 10.0
+                  end
+                  if precinteg[11] > 0
+                    ds[2] = precinteg[11] / 10.0
                   end
                 end
                 obs_flag = false
@@ -435,6 +487,60 @@ def make_summer_ru(ru_data)
           else
             refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_VSCAL"] = 0
           end
+          #
+          # 土壌雨量指数スケール判定
+          #
+          refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] = 0
+          if !obs_flag
+            # 予測値使用
+            # 土壌雨量指数タンク1貯留高取得
+            # 予測値は欠測なし。負数は0とみなす。
+            r60 = prcrin_1hour_total > 0 ? prcrin_1hour_total : 0
+            ds = get_fcst_soil_prec_index(r60, ds)
+            s_index = (( ds[0] + ds[1] + ds[2] ) * 10).truncate
+          end
+          soilp_scale_count = 0
+          if soil_prec_lvldata.size > 0
+            if obs_flag
+              if obs_rain_scale[ft] != nil && obs_rain_scale[ft][rain_point] != nil
+                soilp_vscal = obs_rain_scale[ft][rain_point]["soilp_vscal"]
+                refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] = soilp_vscal
+                s_index_by_h_prec = obs_rain_scale[ft][rain_point]["s_index_by_h_prec"]
+                soil_prec_lvldata.each_key{|lvl|
+                  refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"].array_resize(soilp_scale_count+1)
+                  refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"][soilp_scale_count]["scale"] = lvl
+                  refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"][soilp_scale_count]["value"] = LACK_VALUE_16
+                  if s_index_by_h_prec != nil && s_index_by_h_prec[lvl] != nil
+                    refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"][soilp_scale_count]["value"] = s_index_by_h_prec[lvl]
+                  else
+                    $log.write("%s %s data not exist in s_index_by_h_prec." % [ft.to_s,rain_point])
+                  end
+                  soilp_scale_count += 1
+                }
+              end
+            else
+              # 予測値使用
+              # 土壌雨量スケール取得
+              soilp_vscal, s_index_by_h_prec = get_soilprec_scale( prcrin_1hour_total, s_index * 0.1, soil_prec_lvldata )
+              refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] = soilp_vscal
+              # 土壌雨量スケール取得
+              soil_prec_lvldata.each_key{|lvl|
+                refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"].array_resize(soilp_scale_count+1)
+                refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"][soilp_scale_count]["scale"] = lvl
+                refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_index"][soilp_scale_count]["value"] = s_index_by_h_prec[lvl] * 10
+                soilp_scale_count += 1
+              }
+            end
+            # 土壌雨量指数スケール
+            if refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] > refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_VSCAL"]
+              refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_CSCAL"] = refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"]
+            end
+          end
+          refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_count"] = soilp_scale_count
+          refw_smallz["point_data"][point_count]["FCAS"][l]["s_index"] = s_index  # 土壌雨量指数 整数値 10倍値（0.1mm単位）切り捨て
+          refw_smallz["point_data"][point_count]["FCAS"][l]["s1"] = ds[0]  # 土壌雨量指数タンク1貯留高
+          refw_smallz["point_data"][point_count]["FCAS"][l]["s2"] = ds[1]  # 土壌雨量指数タンク2貯留高
+          refw_smallz["point_data"][point_count]["FCAS"][l]["s3"] = ds[2]  # 土壌雨量指数タンク3貯留高
           if reset_flag
             prcrin_prst_p = 0
             prcrin_prst_start_t = nil
@@ -444,7 +550,8 @@ def make_summer_ru(ru_data)
           # 中区間小区間最大スケール
           rain_vscal = refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_VSCAL"]
           wind_vscal = refw_smallz["point_data"][point_count]["FCAS"][l]["WIND_VSCAL"]
-          get_max_scale(max_scale,ft,zone_id,small_zone,rain_vscal,wind_vscal,use_sflag,use_sflag)  # 202205
+          soilp_vscal = refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"]  # 土壌雨量指数
+          get_max_scale(max_scale,ft,zone_id,small_zone,rain_vscal,wind_vscal,soilp_vscal,use_sflag,use_sflag)  # 202205
         end  # FTループ 202205
         # 連続雨量計算の起算実況日時（実況値の最新観測日時）
         if observation_time == nil
@@ -624,6 +731,17 @@ def main()
   dbdata.transaction() do
     $latest_time_list = dbdata['root']
   end
+  # 土壌雨量スケールの閾値
+  s_path = $config["cl_data_spool_dir"] + "*.pst"
+  fnams = Dir.glob(s_path)
+  fnams.each{|fnam|
+    dbdata = PStore.new(fnam)
+    dbdata.transaction() do
+      if dbdata['root'] != nil && dbdata['root'].size > 0
+        $soilprec_threshold_info = $soilprec_threshold_info.merge(dbdata['root'])
+      end
+    end
+  }
   $log.write("spool data read end.")
   # 暖候期出力RUの生成
   ru_data = read_ru(ARGV[1])

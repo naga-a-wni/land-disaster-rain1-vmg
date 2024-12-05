@@ -35,7 +35,9 @@ def create_ruheader_summer(announced,dataid16,data_name)
     "["                                                 +
     "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
     "],"                                                +
-    "RAIN_VSCAL:INT16,"                                 + # 10V_雨 整数値
+    "RAIN_VSCAL:INT16,"                                 + # 10V_雨(連続雨量)整数値
+    "RAIN_CSCAL:INT16,"                                 + # 10V_雨(暖候期)整数値
+    "SOILP_VSCAL:INT16,"                                + # 10V_雨(土壌雨量指数)整数値
     "WIND_VSCAL:INT16"                                  + # 10V_風 整数値
     "],"                                                +
     "small_ZONE_count:INT16,"                           +
@@ -47,7 +49,9 @@ def create_ruheader_summer(announced,dataid16,data_name)
     "["                                                 +
     "year:INT16,month:INT8,day:INT8,hour:INT8,min:INT8" +
     "],"                                                +
-    "RAIN_VSCAL:INT16,"                                 + # 10V_雨  整数値
+    "RAIN_VSCAL:INT16,"                                 + # 10V_雨(連続雨量)整数値
+    "RAIN_CSCAL:INT16,"                                 + # 10V_雨(暖候期)整数値
+    "SOILP_VSCAL:INT16,"                                + # 10V_雨(土壌雨量指数)整数値
     "WIND_VSCAL:INT16,"                                 + # 10V_風  整数値
     "second_flag:INT8,"                                 + # 第２通行止め基準対象期間【0,1】
     "use_second:INT8"                                   + # 第２通行止め基準適用期間【0,1】
@@ -81,10 +85,22 @@ def create_ruheader_summer(announced,dataid16,data_name)
     "SSTMI:INT8,"                                       + # 吹雪指数 0:なし,1:弱,2:中,3強
     "PRCRIN_PRST:INT16,"                                + # 連続雨量 mm
     "GUSTS:FLOAT32,"                                    + # 瞬間風速 m/sec
-    "RAIN_VSCAL:INT16,"                                 + # 10V_雨 整数値
+    "RAIN_VSCAL:INT16,"                                 + # 10V_雨(連続雨量)整数値
+    "RAIN_CSCAL:INT16,"                                 + # 10V_雨(暖候期)整数値
     "WIND_VSCAL:INT16,"                                 + # 10V_風 整数値
     "second_flag:INT8,"                                 + # 第２通行止め基準対象期間【0,1】
-    "use_second:INT8"                                   + # 第２通行止め基準適用期間【0,1】
+    "use_second:INT8,"                                  + # 第２通行止め基準適用期間【0,1】
+    "s1:FLOAT32,"                                       + # 土壌雨量指数タンク1貯留高
+    "s2:FLOAT32,"                                       + # 土壌雨量指数タンク2貯留高
+    "s3:FLOAT32,"                                       + # 土壌雨量指数タンク3貯留高
+    "s_index:INT32,"                                    + # 土壌雨量指数 整数値 10倍値（0.1mm単位）切り捨て
+    "SOILP_VSCAL:INT16,"                                + # 10V_雨(土壌雨量指数)整数値
+    "SOILP_SCALE_count:INT16,"                          + # 判定を行ったスケール数
+    "SOILP_SCALE_index:{SOILP_SCALE_count}"             +
+    "["                                                 + # スケールループ
+    "scale:INT16,"                                      + # 判定を行ったスケール（30,50）
+    "value:INT32"                                       + # 時間雨量がPRCRIN_1HOUR_TOTAL のときの土壌雨量指数の閾値 整数値
+    "]"                                                 + # スケールループ
     "]"                                                 +
     "]"                                                 + # 小区間に紐づく雨量局分ループ
     "]"                                                 + # 中区間に紐づく小区間分ループ

@@ -29,7 +29,19 @@ def get_obs_prec_integ(end_time,just_time,announcetime,mk2_point_list)
   }
   if params.size > 0
     $log.write("obs_prec_integ read start.")
-    element_list = [ 'StartTime:INT32','IntegratedPrecipitation:INT32','Precipitation:INT32','UpdateTime:INT32','ResetTime:INT32','ResetStart:INT32','SecondTime:INT32' ]
+    element_list = [
+      'StartTime:INT32',
+      'IntegratedPrecipitation:INT32',
+      'Precipitation:INT32',
+      'UpdateTime:INT32',
+      'ResetTime:INT32',
+      'ResetStart:INT32',
+      'SecondTime:INT32',
+      'S_index:INT32',      # 土壌雨量指数
+      'SoilPrec_s1:INT32',  # 土壌雨量指数
+      'SoilPrec_s2:INT32',  # 土壌雨量指数
+      'SoilPrec_s3:INT32'   # 土壌雨量指数
+    ]
     pd = mkConn.read_point($config["mk2_prec_table"], params, mk2_point_list, element_list)
     params.each{|prm|
       obs_prec_integ[prm.time] = {}
@@ -40,6 +52,10 @@ def get_obs_prec_integ(end_time,just_time,announcetime,mk2_point_list)
       resettime = pd.get_data(prm, 'ResetTime')    # 第２通行止め
       resetstart = pd.get_data(prm, 'ResetStart')  # 第２通行止め
       secondtime = pd.get_data(prm, 'SecondTime')  # 新第２
+      s_index = pd.get_data(prm, 'S_index')          # 土壌雨量指数
+      soilprec_s1 = pd.get_data(prm, 'SoilPrec_s1')  # 土壌雨量指数
+      soilprec_s2 = pd.get_data(prm, 'SoilPrec_s2')  # 土壌雨量指数
+      soilprec_s3 = pd.get_data(prm, 'SoilPrec_s3')  # 土壌雨量指数
       mk2_point_list.each_index{|i|
         obs_prec_integ[prm.time][mk2_point_list[i].id] = {}
         obs_prec_integ[prm.time][mk2_point_list[i].id]["StartTime"] = starttime[i]
@@ -49,6 +65,10 @@ def get_obs_prec_integ(end_time,just_time,announcetime,mk2_point_list)
         obs_prec_integ[prm.time][mk2_point_list[i].id]["ResetTime"] = resettime[i]    # 第２通行止め
         obs_prec_integ[prm.time][mk2_point_list[i].id]["ResetStart"] = resetstart[i]  # 第２通行止め
         obs_prec_integ[prm.time][mk2_point_list[i].id]["SecondTime"] = secondtime[i]  # 新第２
+        obs_prec_integ[prm.time][mk2_point_list[i].id]["S_index"] = s_index[i]          # 土壌雨量指数
+        obs_prec_integ[prm.time][mk2_point_list[i].id]["SoilPrec_s1"] = soilprec_s1[i]  # 土壌雨量指数
+        obs_prec_integ[prm.time][mk2_point_list[i].id]["SoilPrec_s2"] = soilprec_s2[i]  # 土壌雨量指数
+        obs_prec_integ[prm.time][mk2_point_list[i].id]["SoilPrec_s3"] = soilprec_s3[i]  # 土壌雨量指数
       }
     }
     $log.write("obs_prec_integ read end.")
@@ -82,18 +102,53 @@ def get_obs_scale_hour(end_time,announcetime,mk2_rid_list)
   }
   if params.size > 0
     $log.write("get_obs_scale read start.")
-    element_list = [ 'second_flg:INT8','use_second:INT8','rain_scale:INT16' ]
+    # 土壌雨量指数
+    element_list = [
+      'second_flg:INT8',
+      'use_second:INT8',
+      'rain_scale:INT16',
+      'soilp_vscal:INT16',        # 土壌雨量指数
+    ]
     pd = mkConn.read_point($config["mk2_scale_table"], params, mk2_rid_list, element_list)
     params.each{|prm|
       obs_rain_scale[prm.time] = {}
       second_flg = pd.get_data(prm, 'second_flg')
       use_second = pd.get_data(prm, 'use_second')
       rain_scale = pd.get_data(prm, 'rain_scale')
+      soilp_vscal = pd.get_data(prm, 'soilp_vscal')                # 土壌雨量指数
       mk2_rid_list.each_index{|i|
         obs_rain_scale[prm.time][mk2_rid_list[i].id] = {}
         obs_rain_scale[prm.time][mk2_rid_list[i].id]["second_flg"] = second_flg[i]
         obs_rain_scale[prm.time][mk2_rid_list[i].id]["use_second"] = use_second[i]
         obs_rain_scale[prm.time][mk2_rid_list[i].id]["rain_scale"] = rain_scale[i]
+        obs_rain_scale[prm.time][mk2_rid_list[i].id]["soilp_vscal"] = soilp_vscal[i]                # 土壌雨量指数
+      }
+    }
+    # 土壌雨量指数
+    $log.write("soil prec index read start.")
+    level_list = []
+    begin
+      level_list = mkConn.get_level_list($config["mk2_soilp_table"])
+    rescue
+      mkConn.close_connection
+      return obs_rain_scale
+    end
+    params = []
+    time_list.each{|btime|
+      if btime.to_i % 3600 == 0
+        level_list.each{|lvl|
+          params.push(MkDataParam.new(0, lvl, btime))
+        }
+      end
+    }
+    pd = mkConn.read_point($config["mk2_soilp_table"], params, mk2_rid_list, ['s_index_by_h_prec:INT32'])
+    params.each{|prm|
+      s_index_by_h_prec = pd.get_data(prm, 's_index_by_h_prec')
+      mk2_rid_list.each_index{|i|
+        if obs_rain_scale[prm.time][mk2_rid_list[i].id]["s_index_by_h_prec"] == nil
+          obs_rain_scale[prm.time][mk2_rid_list[i].id]["s_index_by_h_prec"] = {}
+        end
+        obs_rain_scale[prm.time][mk2_rid_list[i].id]["s_index_by_h_prec"][prm.level.to_i] = s_index_by_h_prec[i]
       }
     }
     $log.write("get_obs_scale read end.")
@@ -265,7 +320,11 @@ def get_latest_prec_integ(just_time,oft,mk2_pointid,obs_prec_integ,prcrin_prst_n
             lft = lft - 300
           end
         end
-        ret = [prcrin_prst,ift,prcrin_prst_update_t,prcrin_prst_reset_t,prcrin_prst_start_t,prcrin_prst_rstart_t,prcrin_prst_second_t,reset_flag]
+        s_index = obs_prec_integ[ift][mk2_pointid]["S_index"]      # 土壌雨量指数
+        s1 = obs_prec_integ[ift][mk2_pointid]["SoilPrec_s1"]       # 土壌雨量指数
+        s2 = obs_prec_integ[ift][mk2_pointid]["SoilPrec_s2"]       # 土壌雨量指数
+        s3 = obs_prec_integ[ift][mk2_pointid]["SoilPrec_s3"]       # 土壌雨量指数
+        ret = [prcrin_prst,ift,prcrin_prst_update_t,prcrin_prst_reset_t,prcrin_prst_start_t,prcrin_prst_rstart_t,prcrin_prst_second_t,reset_flag,s_index,s1,s2,s3]
         return ret
       end
     end

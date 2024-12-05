@@ -3,7 +3,8 @@
 #                         ["wind"]
 #                         ["flag"]
 #                         ["flag2"]
-def get_max_scale(max_scale,ft,zone_id,small_zone,rain,wind,flag,flag2)
+#                         ["soil"]
+def get_max_scale(max_scale,ft,zone_id,small_zone,rain,wind,soil,flag,flag2)
   if max_scale[ft] == nil
     max_scale[ft] = {}
   end
@@ -20,6 +21,9 @@ def get_max_scale(max_scale,ft,zone_id,small_zone,rain,wind,flag,flag2)
   end
   if max_scale[ft][zone_id][small_zone]["wind"] == nil || max_scale[ft][zone_id][small_zone]["wind"] < wind
     max_scale[ft][zone_id][small_zone]["wind"] = wind
+  end
+  if max_scale[ft][zone_id][small_zone]["soil"] == nil || max_scale[ft][zone_id][small_zone]["soil"] < soil
+    max_scale[ft][zone_id][small_zone]["soil"] = soil
   end
 end
 
@@ -39,6 +43,16 @@ def set_max_scale(refw,max_scale)
           if refw["ZONE_data"][i]["FCAS"][j]["WIND_VSCAL"] < szval["wind"]
             refw["ZONE_data"][i]["FCAS"][j]["WIND_VSCAL"] = szval["wind"]
           end
+          if !$old_format && refw["ZONE_data"][i]["FCAS"][j]["SOILP_VSCAL"] < szval["soil"]
+            refw["ZONE_data"][i]["FCAS"][j]["SOILP_VSCAL"] = szval["soil"]
+          end
+          if !$old_format && refw["ZONE_data"][i]["FCAS"][j].has_member?("RAIN_CSCAL")
+            if refw["ZONE_data"][i]["FCAS"][j]["SOILP_VSCAL"] > refw["ZONE_data"][i]["FCAS"][j]["RAIN_VSCAL"]
+              refw["ZONE_data"][i]["FCAS"][j]["RAIN_CSCAL"] = refw["ZONE_data"][i]["FCAS"][j]["SOILP_VSCAL"]
+            else
+              refw["ZONE_data"][i]["FCAS"][j]["RAIN_CSCAL"] = refw["ZONE_data"][i]["FCAS"][j]["RAIN_VSCAL"]
+            end
+          end
         }
       end
     end
@@ -56,6 +70,14 @@ def set_max_scale(refw,max_scale)
             refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["use_second"] = max_scale[fcasd][zone_id][small_zone]["flag2"]
           end
           refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["WIND_VSCAL"] = max_scale[fcasd][zone_id][small_zone]["wind"]
+          if !$old_format && refw["ZONE_data"][i]["FCAS"][j].has_member?("RAIN_CSCAL")
+            refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["SOILP_VSCAL"] = max_scale[fcasd][zone_id][small_zone]["soil"]
+            if refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["SOILP_VSCAL"] > refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["RAIN_VSCAL"]
+              refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["RAIN_CSCAL"] = refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["SOILP_VSCAL"]
+            else
+              refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["RAIN_CSCAL"] = refw["ZONE_data"][i]["small_ZONE_data"][j]["FCAS"][k]["RAIN_VSCAL"]
+            end
+          end
         end
       end
     end
@@ -328,7 +350,8 @@ def road_close_2(refw_smallz,small_zone_save,max_scale,fcst_count,point_count,zo
       # 中区間小区間最大スケール
       if max_scale != nil
         wind_vscal = refw_smallz["point_data"][si]["FCAS"][sj]["WIND_VSCAL"]
-        get_max_scale(max_scale,ft,zone_id,small_zone,scale,wind_vscal,flag,flag2)
+        soilp_vscal = $old_format ? 0 : refw_smallz["point_data"][si]["FCAS"][sj]["SOILP_VSCAL"]
+        get_max_scale(max_scale,ft,zone_id,small_zone,scale,wind_vscal,soilp_vscal,flag,flag2)
       end
     end  # 雨量局ループ3
   end  # FTループ
@@ -442,7 +465,8 @@ def road_close_2_2(refw_smallz,small_zone_save,max_scale,fcst_count,point_count,
       # 中区間小区間最大スケール
       if max_scale != nil
         wind_vscal = refw_smallz["point_data"][si]["FCAS"][sj]["WIND_VSCAL"]
-        get_max_scale(max_scale,ft,zone_id,small_zone,scale,wind_vscal,flag,flag2)
+        soilp_vscal = $old_format ? 0 : refw_smallz["point_data"][si]["FCAS"][sj]["SOILP_VSCAL"]
+        get_max_scale(max_scale,ft,zone_id,small_zone,scale,wind_vscal,soilp_vscal,flag,flag2)
       end
     end  # 雨量局ループ3
   end  # FTループ

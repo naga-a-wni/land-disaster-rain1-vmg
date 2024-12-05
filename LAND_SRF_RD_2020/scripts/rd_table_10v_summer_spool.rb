@@ -27,9 +27,15 @@ $obs_point_list = {}
 $mk2_point_list = {}
 # 連続雨量に使用する全解析雨量のASMID
 $analysis_point_list = []
+# 小区間とASMIDの組み合わせと雨量局の紐づけ
+# $szid_asmid_rain_pid[small_zid][asm_id_rp] = []
+$szid_asmid_rain_pid = {}
+# 土壌雨量指数 CL基準値バージョン
+$cl_version = nil
 
 # <?xml version='1.0' encoding='utf-8'?>
 # <list info="RD_ZONE" issue="2009-05-18T09:17:41">
+#   <CL_version>1234567890<CL_version> # 土壌雨量
 #   <SMMR_ZONE>
 #     <ZONE_ID>140100000101</ZONE_ID>
 #     <ZONE_NAME>国縫IC〜長万部IC</ZONE_NAME>
@@ -98,6 +104,14 @@ def load_pntfile(xmlfile)
   doc = Document.new(dest)
   dest.flock( File::LOCK_UN )
   dest.close
+  # 土壌雨量指数 CL基準値バージョン
+  if doc.elements["list/CL_version"] != nil
+    $cl_version = doc.elements["list/CL_version"].text
+    print "CL_version=%s\n" % [$cl_version]
+    $save_data["CL_version"] = $cl_version
+  else
+    print "CL_version not exist.\n"
+  end
   # 中区間ループ
   # 必須要素がない場合はエラーで落として止める
   doc.elements.each('list/SMMR_ZONE'){|zone|
@@ -212,6 +226,9 @@ def load_pntfile(xmlfile)
       if points[zone_id]["SMALL_ZONE"].has_key?(small_zid)
         print "ZONE_ID=%s small_ZONE ZONE_ID=%s duplicated.\n" % [zone_id,small_zid]
       end
+      if $szid_asmid_rain_pid[small_zid] == nil  # 土壌雨量指数
+        $szid_asmid_rain_pid[small_zid] = {}
+      end
       points[zone_id]["SMALL_ZONE"][small_zid] = {}
       points[zone_id]["SMALL_ZONE"][small_zid]["RAIN_POINT"] = {}
       points[zone_id]["SMALL_ZONE"][small_zid]["NAME"] = sz['ZONE_NAME'].text
@@ -230,6 +247,10 @@ def load_pntfile(xmlfile)
         if winter_summer[asm_id_rp] == nil
           winter_summer[asm_id_rp] = []
         end
+        if $szid_asmid_rain_pid[small_zid][asm_id_rp] == nil  # 土壌雨量指数
+          $szid_asmid_rain_pid[small_zid][asm_id_rp] = []
+        end
+        $szid_asmid_rain_pid[small_zid][asm_id_rp].push(rain_pid)
         # asm地点と中期日中夜間定義紐づけ
         asm_daynight[asm_id_rp] = mrf_daynight["DAYTM_MRF"]
         asm_daynight[asm_id_rp]["srf_day_end"] = mrf_daynight["srf_day_end"]
@@ -468,7 +489,7 @@ def main()
   $config = YAML.load_file(ARGV[0])
   pntfile = $config["spool_dir"] + $config["rd_table_summer"]
   if File.exist?(pntfile) == false
-    print "xml file not exist %s\n" % $config["rd_table_summer"]
+    print "xml file not exist %s\n" % [pntfile]
     return
   end
   load_pntfile(pntfile)
@@ -502,6 +523,16 @@ def main()
   dbdata = PStore.new($config["rd_analysis_point_list_spool"])
   dbdata.transaction() do
     dbdata['root'] =  $analysis_point_list
+  end
+  # 小区間とASMIDの組み合わせと雨量局の紐づけ
+  dbdata = PStore.new($config["szid_asmid_rain_pid_spool"])
+  dbdata.transaction() do
+    dbdata['root'] =  $szid_asmid_rain_pid
+  end
+  # 土壌雨量指数 CL基準値バージョン
+  dbdata = PStore.new($config["CL_version"])
+  dbdata.transaction() do
+    dbdata['root'] = $cl_version
   end
   print "all analysis point=[%s]\n" % [$analysis_point_list.join(",")]
 end

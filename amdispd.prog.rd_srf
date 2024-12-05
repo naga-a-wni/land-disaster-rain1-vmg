@@ -14,12 +14,12 @@ Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 41102
 LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_30.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
 #
-[MAKE_RD_SRFC_10V_RAW_winter_30_MSMver]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024529 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_30.log
-WaitList=MAKE_RD_SRFC_10V_MSM_30,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
-TimeOut=3600
-NelsonID=411024936
+#[MAKE_RD_SRFC_10V_RAW_winter_30_MSMver]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024529 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_30.log
+#WaitList=MAKE_RD_SRFC_10V_MSM_30,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+#TimeOut=3600
+#NelsonID=411024936
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(40%）
 #-----------------------------------------------
@@ -36,12 +36,12 @@ Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 41102
 LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_40.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
 #
-[MAKE_RD_SRFC_10V_RAW_winter_40_MSMver]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024528 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_40.log
-WaitList=MAKE_RD_SRFC_10V_MSM_40,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
-TimeOut=3600
-NelsonID=411024942
+#[MAKE_RD_SRFC_10V_RAW_winter_40_MSMver]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024528 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_40.log
+#WaitList=MAKE_RD_SRFC_10V_MSM_40,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+#TimeOut=3600
+#NelsonID=411024942
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(50%）
 #-----------------------------------------------
@@ -58,12 +58,12 @@ Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 41102
 LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_50.log
 WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
 #
-[MAKE_RD_SRFC_10V_RAW_winter_50_MSMver]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024527 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_50.log
-WaitList=MAKE_RD_SRFC_10V_MSM_50,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
-TimeOut=3600
-NelsonID=411024943
+#[MAKE_RD_SRFC_10V_RAW_winter_50_MSMver]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024527 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_msm_50.log
+#WaitList=MAKE_RD_SRFC_10V_MSM_50,RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+#TimeOut=3600
+#NelsonID=411024943
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(20%）
 #-----------------------------------------------

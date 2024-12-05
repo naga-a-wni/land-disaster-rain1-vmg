@@ -22,6 +22,12 @@ Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_table_10v_summer_spool.rb 
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_table_10v_summer_spool.log
 WaitList=SPOOL_RD_TABLE_10V_SUMMER_XML
 
+# get soilprec threshold
+[GET_SOILPREC_THRESHOLD]
+Command=/usr/amoeba/tools/GET_SOILPREC_THRESHOLD/scripts/get_soilprec_threshold.rb /usr/amoeba/tools/GET_SOILPREC_THRESHOLD/config/config_soil.yml
+LogFile=/usr/amoeba/log/GET_SOILPREC_THRESHOLD/get_soilprec_threshold.log
+WaitList=PARSE_RD_TABLE_10V_SUMMER_XML
+
 #------------------------
 # update msm spool index 
 #------------------------
