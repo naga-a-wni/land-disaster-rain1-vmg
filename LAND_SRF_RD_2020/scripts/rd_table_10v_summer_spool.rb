@@ -32,10 +32,12 @@ $analysis_point_list = []
 $szid_asmid_rain_pid = {}
 # 土壌雨量指数 CL基準値バージョン
 $cl_version = nil
+$token_env = nil
 
 # <?xml version='1.0' encoding='utf-8'?>
 # <list info="RD_ZONE" issue="2009-05-18T09:17:41">
 #   <CL_version>1234567890<CL_version> # 土壌雨量
+#   <token_env>stg</token_env>         # 土壌雨量
 #   <SMMR_ZONE>
 #     <ZONE_ID>140100000101</ZONE_ID>
 #     <ZONE_NAME>国縫IC〜長万部IC</ZONE_NAME>
@@ -111,6 +113,13 @@ def load_pntfile(xmlfile)
     $save_data["CL_version"] = $cl_version
   else
     print "CL_version not exist.\n"
+  end
+  if doc.elements["list/token_env"] != nil
+    $token_env = doc.elements["list/token_env"].text
+    print "token_env=%s\n" % [$token_env]
+    $save_data["token_env"] = $token_env
+  else
+    print "token_env not exist.\n"
   end
   # 中区間ループ
   # 必須要素がない場合はエラーで落として止める
@@ -532,7 +541,9 @@ def main()
   # 土壌雨量指数 CL基準値バージョン
   dbdata = PStore.new($config["CL_version"])
   dbdata.transaction() do
-    dbdata['root'] = $cl_version
+    dbdata['root'] = {}
+    dbdata['root']["CL_version"] = $cl_version
+    dbdata['root']["token_env"] = $token_env
   end
   print "all analysis point=[%s]\n" % [$analysis_point_list.join(",")]
 end

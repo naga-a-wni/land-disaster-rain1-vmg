@@ -26,6 +26,7 @@ $soilprec_threshold_info = {}
 $szid_asmid_rain_pid = {}
 # CLバージョン（トークン）
 $cl_version = nil
+$token_env = nil
 
 def usage
 puts <<EOF
@@ -132,17 +133,24 @@ def main()
   # CLバージョン（トークン）
   dbdata = PStore.new($config["spool_dir"] + $config["CL_version"])
   dbdata.transaction() do
-    $cl_version = dbdata['root']
+    $cl_version = dbdata['root']["CL_version"]
+    $token_env = dbdata['root']["token_env"]
   end
   if !$debug && $cl_version == nil
     $log.write("%s not exist." % [$config["CL_version"]])
     return
   end
   $log.write("Version %s" % [$cl_version])
+  $log.write("token_env %s" % [$token_env])
   # ディレクトリチェック
   work_dir = $config["spool_dir"] + "work"
   if !File.exist?(work_dir)
     FileUtils.mkdir(work_dir)
+  end
+  # 取得先エンドポイント
+  cl_api_url = $config["stg_cl_api_url"]
+  if $token_env == "prod"
+    cl_api_url = $config["prod_cl_api_url"]
   end
   # 作業ディレクトリの作成
   input_dir = "%s/%s" % [work_dir, Time.now.strftime("%Y%m%d%H%M%S")]
@@ -152,9 +160,9 @@ def main()
   if inputfile == nil
     # APIでJOSNファイルをget
     if $config["http_proxy"] != nil
-      cmd = "curl -x %s -o %s %s%s/%s.tar.gz" % [$config["http_proxy"],zipfile,$config["cl_api_url"],$cl_version,$config["cl_info_fnam"]]
+      cmd = "curl -x %s -o %s %s%s/%s.tar.gz" % [$config["http_proxy"],zipfile,cl_api_url,$cl_version,$config["cl_info_fnam"]]
     else
-      cmd = "curl -o %s %s%s/%s.tar.gz" % [zipfile,$config["cl_api_url"],$cl_version,$config["cl_info_fnam"]]
+      cmd = "curl -o %s %s%s/%s.tar.gz" % [zipfile,cl_api_url,$cl_version,$config["cl_info_fnam"]]
     end
     $log.write(cmd)
     ret = system(cmd)
