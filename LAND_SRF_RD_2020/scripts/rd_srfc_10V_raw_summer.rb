@@ -243,6 +243,7 @@ def make_summer_ru(ru_data)
         reset_flag = false
         s_index = 0               # 土壌雨量指数
         ds = [0,0,0]              # 土壌雨量指数
+        nf_flag = obs_flag        # 土壌雨量指数
         # 雨量局1時間データ生成
         for l in 0...fcst_count  # FTループ 202205
           ft = ru_data["point_data"][asm_id_rp]["FCST"][l]["FCSTD"]
@@ -491,7 +492,7 @@ def make_summer_ru(ru_data)
           # 土壌雨量指数スケール判定
           #
           refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] = 0
-          if !obs_flag
+          if !nf_flag
             # 予測値使用
             # 土壌雨量指数タンク1貯留高取得
             # 予測値は欠測なし。負数は0とみなす。
@@ -535,6 +536,9 @@ def make_summer_ru(ru_data)
             if refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"] > refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_VSCAL"]
               refw_smallz["point_data"][point_count]["FCAS"][l]["RAIN_CSCAL"] = refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_VSCAL"]
             end
+          end
+          if !obs_flag && nf_flag
+            nf_flag = false
           end
           refw_smallz["point_data"][point_count]["FCAS"][l]["SOILP_SCALE_count"] = soilp_scale_count
           refw_smallz["point_data"][point_count]["FCAS"][l]["s_index"] = s_index  # 土壌雨量指数 整数値 10倍値（0.1mm単位）切り捨て
