@@ -9,10 +9,10 @@ NelsonID=411024609
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(30%）MSM補正ver
 #-----------------------------------------------
-[MAKE_RD_SRFC_10V_MSM_30]
-Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024529 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
-LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_30.log
-WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
+#[MAKE_RD_SRFC_10V_MSM_30]
+#Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024529 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+#LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_30.log
+#WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_30
 #
 #[MAKE_RD_SRFC_10V_RAW_winter_30_MSMver]
 #Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024529 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
@@ -31,10 +31,10 @@ NelsonID=411024610
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(40%）MSM補正ver
 #-----------------------------------------------
-[MAKE_RD_SRFC_10V_MSM_40]
-Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024528 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
-LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_40.log
-WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
+#[MAKE_RD_SRFC_10V_MSM_40]
+#Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024528 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+#LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_40.log
+#WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_40
 #
 #[MAKE_RD_SRFC_10V_RAW_winter_40_MSMver]
 #Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024528 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
@@ -53,10 +53,10 @@ NelsonID=411024611
 #-----------------------------------------------
 # RD雪氷判断支援(短期)COMPASS(50%）MSM補正ver
 #-----------------------------------------------
-[MAKE_RD_SRFC_10V_MSM_50]
-Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024527 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
-LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_50.log
-WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
+#[MAKE_RD_SRFC_10V_MSM_50]
+#Command=/usr/amoeba/tools/RD_SRFC_10V_MSM/scripts/rd_srfc_msm_adjust.rb -t 411024527 -s /usr/amoeba/tools/RD_SRFC_10V_MSM/config/config_msm.yml %input
+#LogFile=/usr/amoeba/log/RD_SRFC_10V_MSM/rd_srfc_msm_adjust_50.log
+#WaitList=RECV_WNI_SRF_COMPAS_FOR_RD_STANDBYDECISION_PERCENTILE_50
 #
 #[MAKE_RD_SRFC_10V_RAW_winter_50_MSMver]
 #Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter_msm.rb -t 411024527 -c -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
