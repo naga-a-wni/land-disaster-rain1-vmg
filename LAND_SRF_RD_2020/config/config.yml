@@ -174,6 +174,34 @@ mk2_soilp_table: obs_soilp_scale_index
 "411026122":
   winter_dataid16: "0200600011026147"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_ownphase_30
+# 2025
+"411026171":
+  winter_dataid16: "0200600011026232"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_80_v2
+"411026172":
+  winter_dataid16: "0200600011026233"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_60_v2
+"411026173":
+  winter_dataid16: "0200600011026234"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_50_v2
+"411026174":
+  winter_dataid16: "0200600011026235"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_40_v2
+"411026175":
+  winter_dataid16: "0200600011026236"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_30_v2
+"411026176":
+  winter_dataid16: "0200600011026237"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_20_v2
+"411026177":
+  winter_dataid16: "0200600011026238"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_15_v2
+"411026178":
+  winter_dataid16: "0200600011026239"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_10_v2
+"411026179":
+  winter_dataid16: "0200600011026240"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_05_v2
 #
 edit_output:
   winter_tagid: 411024614
@@ -231,7 +259,10 @@ lock_file_raw_winter:
 #  "411024885": make_raw_winter_lock_1
   "411024900": make_raw_winter_lock_1
   "411024901": make_raw_winter_lock_1
-#
+  "411026177": make_raw_winter_lock_1
+  "411026178": make_raw_winter_lock_1
+  "411026179": make_raw_winter_lock_1
+# 15
   "411026101": make_raw_winter_lock_2
   "411026102": make_raw_winter_lock_2
   "411026103": make_raw_winter_lock_2
@@ -243,7 +274,10 @@ lock_file_raw_winter:
   "411026109": make_raw_winter_lock_2
   "411026110": make_raw_winter_lock_2
   "411026111": make_raw_winter_lock_2
-#
+  "411026171": make_raw_winter_lock_2
+  "411026172": make_raw_winter_lock_2
+  "411026173": make_raw_winter_lock_2
+# 14
   "411026112": make_raw_winter_lock_3
   "411026113": make_raw_winter_lock_3
   "411026114": make_raw_winter_lock_3
@@ -255,6 +289,10 @@ lock_file_raw_winter:
   "411026120": make_raw_winter_lock_3
   "411026121": make_raw_winter_lock_3
   "411026122": make_raw_winter_lock_3
+  "411026174": make_raw_winter_lock_3
+  "411026175": make_raw_winter_lock_3
+  "411026176": make_raw_winter_lock_3
+# 14
 # lock file make raw data summer
 lock_file_raw_summer: make_raw_summer_lock
 # raw

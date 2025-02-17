@@ -130,3 +130,60 @@ CopyDir=/usr/amoeba/capture
 [411026122]
 JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_ownphase_30
 CopyDir=/usr/amoeba/capture
+# -----
+# 2025
+# -----
+#
+# RD体制判断10V用 短期COMPASS 80%パーセンタイル 第二降雪量版
+#
+[411026171]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 60%パーセンタイル 第二降雪量版
+#
+[411026172]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 50%パーセンタイル 第二降雪量版
+#
+[411026173]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_50_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 40%パーセンタイル 第二降雪量版
+#
+[411026174]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_40_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 30%パーセンタイル 第二降雪量版
+#
+[411026175]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_30_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 20%パーセンタイル 第二降雪量版
+#
+[411026176]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_20_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 15%パーセンタイル 第二降雪量版
+#
+[411026177]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 10%パーセンタイル 第二降雪量版
+#
+[411026178]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_10_v2
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 5%パーセンタイル 第二降雪量版
+#
+[411026179]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
+CopyDir=/usr/amoeba/capture
