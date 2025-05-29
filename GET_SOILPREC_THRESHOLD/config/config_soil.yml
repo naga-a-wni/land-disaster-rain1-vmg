@@ -4,8 +4,8 @@ szid_asmid_rain_pid_spool: szid_asmid_rain_pid.pst
 CL_version: cl_version.pst
 input_expire: 30
 #http_proxy: http://172.16.250.1:8080/
-prod_cl_api_url: https://stg-land-idata-soilwater.bucket.vpce-0a6e9d2fedfed56a2-mau5lbu3-ap-northeast-1c.s3.ap-northeast-1.vpce.amazonaws.com/
-stg_cl_api_url: https://land-idata-soilwater.bucket.vpce-0c26a908ec7bfba5b-unyizsxq.s3.ap-northeast-1.vpce.amazonaws.com/
+stg_cl_api_url: https://stg-land-idata-soilwater.bucket.vpce-0a6e9d2fedfed56a2-mau5lbu3-ap-northeast-1c.s3.ap-northeast-1.vpce.amazonaws.com/
+prod_cl_api_url: https://land-idata-soilwater.bucket.vpce-0c26a908ec7bfba5b-unyizsxq.s3.ap-northeast-1.vpce.amazonaws.com/
 # APIで指定する解凍前の拡張子（.tar.gz）を除いたファイル名
 cl_info_fnam: cl_infos
 # 解凍後のjsonファイル名
