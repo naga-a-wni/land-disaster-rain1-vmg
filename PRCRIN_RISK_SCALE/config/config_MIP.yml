@@ -21,6 +21,7 @@ mk2_compass_prec_mesh_counter: mip_compass_prec_mesh_counter
 mk2_compass_prec_mesh_prst_max: mip_compass_prec_mesh_prst_max
 # COMPASSのスプールファイル
 spool_compas_path: /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/MIP_rain_scale_compass.pst
+# COMPASSの生成時刻保存
 #created_compas_path: /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/MIP_created_compass.pst
 # COMPASS前処理排他用ファイル
 spool_compass_prec_path: /usr/amoeba/spool/workspace/PRCRIN_RISK_SCALE/MIP_compass_precipitation.pst
@@ -44,7 +45,10 @@ keep_level_combine_60: 0.5
 deliver_host: localhost
 deliver_port: 32000
 # 降水確報フィルター
-kakuho_filter: 0.5
+kakuho_filter: 0.7
+kakuho_filter_2: 0.575
+kakuho_filter_3: 2.5
+kakuho_filter_4: 20
 # 編集機能
 edit_data: 0
 # 大雨に関するリスクスケール分割数

@@ -261,7 +261,12 @@ def mnet_add_10minv_ft1( mkConn, ft1_basetime, kakuho_btime, latesttime )
     else
       # 確報あり
       $micronet_prec_ft1[pid] = p60
-      $micronet_prec_ft1[pid] += $kakuho_calc_3ft[0][pid]["max"] * $config["kakuho_filter"]
+#      $micronet_prec_ft1[pid] += $kakuho_calc_3ft[0][pid]["max"] * $config["kakuho_filter"]
+      if $kakuho_calc_3ft[0][pid]["max"] <= $config["kakuho_filter_4"]
+        $micronet_prec_ft1[pid] += $kakuho_calc_3ft[0][pid]["max"] * $config["kakuho_filter"]
+      else
+        $micronet_prec_ft1[pid] += $kakuho_calc_3ft[0][pid]["max"] * $config["kakuho_filter_2"] + $config["kakuho_filter_3"]
+      end
     end
 #    fs.print "ft1=%d\n" % $micronet_prec_ft1[pid]
   }

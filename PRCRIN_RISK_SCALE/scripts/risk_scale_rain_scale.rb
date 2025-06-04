@@ -107,7 +107,12 @@ def save_60min(pid,fti,justtime)
           print "pid=%s ft1 data not exist.\n" % [pid]
         end
       else
-        p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+#        p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+        if $kakuho_calc_3ft[fti-1][pid]["max"] <= $config["kakuho_filter_4"]
+          p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+        else
+          p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter_2"] + $config["kakuho_filter_3"]
+        end
       end
       p60 = p60 >= 0 ? p60 : c_p60
     end
@@ -188,7 +193,12 @@ def get_scale_60min(pid,lvl,fti,justtime)
             print "pid=%s ft1 data not exist.\n" % [pid]
           end
         else
-          p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+#          p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+          if $kakuho_calc_3ft[fti-1][pid]["max"] <= $config["kakuho_filter_4"]
+            p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter"]
+          else
+            p60 = $kakuho_calc_3ft[fti-1][pid]["max"] * $config["kakuho_filter_2"] + $config["kakuho_filter_3"]
+          end
         end
         p60 = p60 >= 0 ? p60 : c_p60
       end
