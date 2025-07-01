@@ -203,6 +203,16 @@ mk2_soilp_table: obs_soilp_scale_index
   winter_dataid16: "0200600011026240"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_05_v2
 #
+"412010280":
+  summer_dataid16: "0200600011026319"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_main10
+"412010281":
+  summer_dataid16: "0200600011026320"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_main20
+"412010282":
+  summer_dataid16: "0200600011026321"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_main30
+#
 edit_output:
   winter_tagid: 411024614
   winter_dataid16: "0200600011024614"

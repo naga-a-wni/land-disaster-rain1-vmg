@@ -276,3 +276,30 @@ Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h 
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_pressure_pattern.log
 WaitList=RECV_WNI_SRF_COMPAS_SMMR_pressure_pattern
 NelsonID=411024835
+# -------
+# 202506
+# -------
+#---------------------------------------------------------
+# 通行規制可否判断支援(短期)気圧配置フィルターCOMPASS夏版 
+#---------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main10]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010280 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_main10.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main10
+NelsonID=411026319
+#---------------------------------------------------------
+# 通行規制可否判断支援(短期)気圧配置フィルターCOMPASS夏版 
+#---------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main20]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010281 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_main20.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main20
+NelsonID=411026320
+#---------------------------------------------------------
+# 通行規制可否判断支援(短期)気圧配置フィルターCOMPASS夏版 
+#---------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main30]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 412010282 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_main30.log
+WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main30
+NelsonID=411026321

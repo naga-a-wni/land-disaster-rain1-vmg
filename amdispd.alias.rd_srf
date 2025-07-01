@@ -166,3 +166,24 @@ CopyDir=/usr/amoeba/capture
 [411024901]
 JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80
 CopyDir=/usr/amoeba/capture
+# -------
+# 202506
+# -------
+#
+# COMPASS RDシビアシナリオ(強雨ポテンシャル利用+MAIN10%) 降水
+#
+[412010280]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main10
+CopyDir=/usr/amoeba/capture
+#
+# COMPASS RDシビアシナリオ(強雨ポテンシャル利用+MAIN20%) 降水
+#
+[412010281]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main20
+CopyDir=/usr/amoeba/capture
+#
+# COMPASS RDシビアシナリオ(強雨ポテンシャル利用+MAIN30%) 降水
+#
+[412010282]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main30
+CopyDir=/usr/amoeba/capture
