@@ -1,7 +1,7 @@
 # 引数：fti、出力データ参照
 # 返り：路面状態
-def get_rdcnd(t, refw_fcst)
-  if t == 0
+def get_rdcnd(t, refw_fcst, startft=0)
+  if t == startft
     refw_fcst[t]["RDCND"] = get_rdcnd_first( refw_fcst[t]["RDTMP"], refw_fcst[t]["WX"], refw_fcst[t]["SNWFLL_1HOUR_TOTAL"] )
     return
   end
@@ -14,7 +14,7 @@ def get_rdcnd(t, refw_fcst)
       bstat = false
       cnt = 0
       totalsnow = 0
-      t.downto(0){|m|
+      t.downto(startft){|m|
         if refw_fcst[m]["SNWFLL_1HOUR_TOTAL"] >= 1 && refw_fcst[m]["SNWFLL_1HOUR_TOTAL"] != LACK_VALUE_16 && refw_fcst[m]["RDTMP"] < 0.45 
           cnt = cnt + 1
           totalsnow = totalsnow + refw_fcst[m]["SNWFLL_1HOUR_TOTAL"]
@@ -29,11 +29,11 @@ def get_rdcnd(t, refw_fcst)
         refw_fcst[t]["RDCND"] = 3  #（１）路温＜0.5度で、時間降雪≧1cmかつ路温＜0.5度の状態が連続し、トータル5cm以上に達した場合→「圧」
       end
     end
-    if t > 0
+    if t > startft
       if refw_fcst[t-1]["RDCND"] == 3 && refw_fcst[t]["RDCND"] == LACK_VALUE_8
         bstat = false
         cnt = 0
-        (t-1).downto(0){|m|
+        (t-1).downto(startft){|m|
           if refw_fcst[m]["RDCND"] == 3
             cnt = cnt + 1
           else
@@ -45,12 +45,12 @@ def get_rdcnd(t, refw_fcst)
         end
       end
     end
-    if t + 1 > 6
+    if t + 1 > 6 + startft
       if refw_fcst[t-1]["RDCND"] == 3 && refw_fcst[t]["RDCND"] == LACK_VALUE_8
         cnt = 0
         cntb = 0
         bstat = false
-        (t-1).downto(0){|m|
+        (t-1).downto(startft){|m|
           if refw_fcst[m]["RDCND"] == 3
             cnt = cnt + 1
           end
@@ -67,12 +67,12 @@ def get_rdcnd(t, refw_fcst)
         end
       end
     end
-    if t > 0
+    if t > startft
       if refw_fcst[t-1]["RDCND"] == 0 && isdry(refw_fcst[t]["WX"])
         refw_fcst[t]["RDCND"] = 0  #（４）路温＜0.5度で、前路面状態が「乾」で、天気マークが非降水系の場合→  「乾」
       end
     end
-    if t >= 5
+    if t >= 5 + startft
       if refw_fcst[t-1]["RDCND"] == 1 && refw_fcst[t]["RDCND"] == LACK_VALUE_8
         bstat = true
         cnt = 0
@@ -88,7 +88,7 @@ def get_rdcnd(t, refw_fcst)
       end
     end
     if refw_fcst[t]["RDCND"] == LACK_VALUE_8
-      if t > 0
+      if t > startft
         refw_fcst[t]["RDCND"] = 4  #（６）路温＜0.5度で、（１）～（５）を全て満たさない場合→  「凍」
       end
     end
@@ -96,7 +96,7 @@ def get_rdcnd(t, refw_fcst)
     if refw_fcst[t]["RDTMP"] < 4.45 && refw_fcst[t]["RDTMP"] != LACK_VALUE_16
       if refw_fcst[t]["SNWFLL_1HOUR_TOTAL"] >= 1 && refw_fcst[t]["SNWFLL_1HOUR_TOTAL"] != LACK_VALUE_16
         refw_fcst[t]["RDCND"] = 2  #（７）路温≧0.5度で、時間降雪≧1cm以上で、路温＜4.5度の場合→「シャ」(気温変更、2007.02.01 Y.Touda)
-      elsif t > 0
+      elsif t > startft
         if refw_fcst[t-1]["RDCND"] == 3
           refw_fcst[t]["RDCND"] = 2  #（８）路温≧0.5度で、前路面状態が「圧」で、路温＜4.5度の場合→「シャ」(気温変更、2007.02.01 Y.Touda)
         elsif refw_fcst[t-1]["RDCND"] == 2
@@ -116,12 +116,12 @@ def get_rdcnd(t, refw_fcst)
         end
       end
     end
-    if t >= 6
+    if t >= 6 + startft
       if refw_fcst[t-1]["RDCND"] == 2
         cnt = 0
         cntb = 0
         bstat = false
-        (t-1).downto(0){|m|
+        (t-1).downto(startft){|m|
           if refw_fcst[m]["RDCND"] == 2
             cnt = cnt + 1
           end
@@ -137,12 +137,12 @@ def get_rdcnd(t, refw_fcst)
         end
       end
     end
-    if t > 0
+    if t > startft
       if refw_fcst[t-1]["RDCND"] == 0 && isdry(refw_fcst[t]["WX"]) && refw_fcst[t]["RDCND"] == LACK_VALUE_8
         refw_fcst[t]["RDCND"] = 0  #（１０）路温≧0.5度で、前路面状態が「乾」で、天気マークが非降水系の場合→  「乾」
       end
     end
-    if t > 5
+    if t > 5 + startft
       if refw_fcst[t-1]["RDCND"] == 1 && isdry(refw_fcst[t]["WX"]) && refw_fcst[t]["RDCND"] == LACK_VALUE_8
         bstat = true
         (t-5).upto(t){|m|
@@ -157,7 +157,7 @@ def get_rdcnd(t, refw_fcst)
       end
     end
     if refw_fcst[t]["RDCND"] == LACK_VALUE_8
-      if t > 0
+      if t > startft
         refw_fcst[t]["RDCND"] = 1  #（１２）路温≧0.5度で、（７）～（１１）を全て満たさない場合→  「湿」
       end
     end
