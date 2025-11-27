@@ -173,7 +173,7 @@ def read_honsi_spool()
     # 塩分、路面状態（目視）
     if latest_manualentered[zid] == nil
       $honsi_obs_data[zid]['RDCND'] = 0 # 不明
-      $honsi_obs_data[zid]['RSLT'] = 1  # 不明
+      $honsi_obs_data[zid]['RSLT'] = 0  # 入力なし
     else
       $honsi_obs_data[zid]['RDCND'] = latest_manualentered[zid]['RDCND']
       $honsi_obs_data[zid]['RSLT'] = latest_manualentered[zid]['RSLT']
