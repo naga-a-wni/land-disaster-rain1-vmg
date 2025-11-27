@@ -1,0 +1,9 @@
+#config.yml
+spool_dir: /usr/amoeba/spool/workspace/LAND_SRF_RD_2020/
+rd_table_winter_spool: RD_TABLE_10V_WINTER.pst
+fcasjp_honsi_spool: HONSI.pst
+honsi_winter_obsid_spool: winter_obsid_honsi.pst
+jbhonsi_manualentered_spool: jbhonsi_manualentered.pst
+honsi_route_e_point_table: /home/amoeba/tools/SPOOL_JBHONSI_MANUALENTERED/config/HONSI_routeE.xml
+CONTXT:
+ - HONSI

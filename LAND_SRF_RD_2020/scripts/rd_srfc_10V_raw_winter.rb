@@ -18,6 +18,8 @@ require 'get_scale_winter.rb'
 require 'adjust_elements.rb'
 require 'smoothing_elements.rb'
 require 'lock_and_wait.rb'
+# JB本四
+require 'get_honsi_scale_winter.rb'
 
 $config = nil
 $log = nil
@@ -30,6 +32,8 @@ $rd_table_winter = nil
 $zone_data = nil
 $dewtmp_avg = nil
 $change_data = nil
+# JB本四
+$honsi_obs_data = nil
 
 # 入力データの欠測値はすべて-9999
 LACK_VALUE_16 = -9999
@@ -76,7 +80,8 @@ end
 #         ["hour_data"][ft]["snow"]["diff"]
 #         ["hour_data"][ft]["RDFEEZE"]
 #
-def set_daynight_data(zone_id, ft, daynight, refr_fcst, dewtmp, wx, mintmp_fts)
+#def set_daynight_data(zone_id, ft, daynight, refr_fcst, dewtmp, wx, mintmp_fts)
+def set_daynight_data(zone_id, ft, daynight, refr_fcst, dewtmp, wx)
   # 10Vスケール判定に必要な 時間帯毎の「最低気温」「最低路温」「総雨量」「総降雪量」「雨天時間」「降雪時間」「降雨時間」を求めておく。
   daynight["end"] = ft
   daynight["hour_data"][ft] = {}
@@ -101,7 +106,7 @@ def set_daynight_data(zone_id, ft, daynight, refr_fcst, dewtmp, wx, mintmp_fts)
   # 最低気温
   if daynight["AIRTMP_MIN"] == nil || (refr_fcst["AIRTMP"] != LACK_VALUE_16 && refr_fcst["AIRTMP"] < daynight["AIRTMP_MIN"])
     daynight["AIRTMP_MIN"] = refr_fcst["AIRTMP"]
-    mintmp_fts["min_airtmp_ft"] = ft
+#    mintmp_fts["min_airtmp_ft"] = ft
   end
   # 総降雪量
   daynight["hour_data"][ft]["snow"]["raw"] = refr_fcst["SNWFLL_1HOUR_TOTAL"]
@@ -118,7 +123,7 @@ def set_daynight_data(zone_id, ft, daynight, refr_fcst, dewtmp, wx, mintmp_fts)
   # 最低路温
   if daynight["RDTMP_MIN"] == nil || (refr_fcst["RDTMP"] != LACK_VALUE_16 && refr_fcst["RDTMP"] < daynight["RDTMP_MIN"])
     daynight["RDTMP_MIN"] = refr_fcst["RDTMP"]
-    mintmp_fts["min_rdtmp_ft"] = ft
+#    mintmp_fts["min_rdtmp_ft"] = ft
   end
   # 総雨量
   if refr_fcst["PRCRIN_1HOUR_TOTAL"] > 0 && refr_fcst["SNWFLL_1HOUR_TOTAL"] <= 0
@@ -303,9 +308,9 @@ def make_winter_ru(input_data)
       daynight = nil           # 日中夜間データ
       # 1時間データ生成
       # スムージングで値を変更してはいけないコマを記録 2023/10
-      night_mintmp_fts = {}
-      fix_airtmp_fts = []
-      fix_rdtmp_fts = []
+#      night_mintmp_fts = {}
+#      fix_airtmp_fts = []
+#      fix_rdtmp_fts = []
       for j in 0...fcst_count
         ft = refr["point_data"][i]["FCST"][j]["FCSTD"].get_value_time
         refw["ZONE_data"][zone_area_count]["FCAS"][j]["FCASD"].set_value_time(ft)
@@ -355,23 +360,23 @@ def make_winter_ru(input_data)
         # 日中夜間
         term = isdaynight(zone_id,ft)
         if daynight == nil || daynight["term"] != term
-          
-	  if daynight != nil                    # 最低気温/路温が確定した 
-            fix_airtmp_fts.push(night_mintmp_fts["min_airtmp_ft"]) if night_mintmp_fts["min_airtmp_ft"] != nil 
-            fix_rdtmp_fts.push(night_mintmp_fts["min_rdtmp_ft"]) if night_mintmp_fts["min_rdtmp_ft"] != nil  
-            same_mintemp_fts  =check_daynight_mintemp(daynight, night_mintmp_fts)
-            fix_airtmp_fts.concat(same_mintemp_fts["min_airtmp_ft"])
-            fix_rdtmp_fts.concat(same_mintemp_fts["min_rdtmp_ft"])
-          end
+#          if daynight != nil                    # 最低気温/路温が確定した 
+#            fix_airtmp_fts.push(night_mintmp_fts["min_airtmp_ft"]) if night_mintmp_fts["min_airtmp_ft"] != nil 
+#            fix_rdtmp_fts.push(night_mintmp_fts["min_rdtmp_ft"]) if night_mintmp_fts["min_rdtmp_ft"] != nil  
+#            same_mintemp_fts  =check_daynight_mintemp(daynight, night_mintmp_fts)
+#            fix_airtmp_fts.concat(same_mintemp_fts["min_airtmp_ft"])
+#            fix_rdtmp_fts.concat(same_mintemp_fts["min_rdtmp_ft"])
+#          end
           # 夜間最低気温/路温の時刻
-          night_mintmp_fts["min_airtmp_ft"] = nil
-          night_mintmp_fts["min_rdtmp_ft"] = nil
+#          night_mintmp_fts["min_airtmp_ft"] = nil
+#          night_mintmp_fts["min_rdtmp_ft"] = nil
           # 日中夜間変更
           daynight = {}
           daynight["hour_data"] = {}
           daynight["RDFEEZE_RENZOKU"] = []
           daynight["term"] = term
           daynight["begin"] = ft
+          daynight["bftc"] = j  # JB本四
           daynight["RAIN_TELOP"] = 0
           daynight["RAIN_HOURS"] = 0
           daynight["SNOW_HOURS"] = 0
@@ -385,16 +390,17 @@ def make_winter_ru(input_data)
 #          $log.write( "zone_id=%s daynight start %s %s" % [zone_id,term,ft.to_s] )
         end
         # 日中夜間一次データ作成
-        set_daynight_data(zone_id, ft, daynight, refr["point_data"][i]["FCST"][j], refw["ZONE_data"][zone_area_count]["FCAS"][j]["DEWTMP"], wx, night_mintmp_fts)
+#        set_daynight_data(zone_id, ft, daynight, refr["point_data"][i]["FCST"][j], refw["ZONE_data"][zone_area_count]["FCAS"][j]["DEWTMP"], wx, night_mintmp_fts)
+        set_daynight_data(zone_id, ft, daynight, refr["point_data"][i]["FCST"][j], refw["ZONE_data"][zone_area_count]["FCAS"][j]["DEWTMP"], wx)
       end
       # 最後のdaynight_dataが夜間の場合、最低気温のftを保存しておく
-      if daynight != nil                    # 最低気温/路温が確定した
-        fix_airtmp_fts.push(night_mintmp_fts["min_airtmp_ft"]) if night_mintmp_fts["min_airtmp_ft"] != nil
-        fix_rdtmp_fts.push(night_mintmp_fts["min_rdtmp_ft"]) if night_mintmp_fts["min_rdtmp_ft"] != nil
-        same_mintemp_fts  =check_daynight_mintemp(daynight, night_mintmp_fts)
-        fix_airtmp_fts.concat(same_mintemp_fts["min_airtmp_ft"])
-        fix_rdtmp_fts.concat(same_mintemp_fts["min_rdtmp_ft"])
-      end
+#      if daynight != nil                    # 最低気温/路温が確定した
+#        fix_airtmp_fts.push(night_mintmp_fts["min_airtmp_ft"]) if night_mintmp_fts["min_airtmp_ft"] != nil
+#        fix_rdtmp_fts.push(night_mintmp_fts["min_rdtmp_ft"]) if night_mintmp_fts["min_rdtmp_ft"] != nil
+#        same_mintemp_fts  =check_daynight_mintemp(daynight, night_mintmp_fts)
+#        fix_airtmp_fts.concat(same_mintemp_fts["min_airtmp_ft"])
+#        fix_rdtmp_fts.concat(same_mintemp_fts["min_rdtmp_ft"])
+#      end
       # 時間降雪量データ作成
       make_snwfll_data(daynight_zone,zone_id)
       for j in 0...fcst_count
@@ -420,43 +426,43 @@ def make_winter_ru(input_data)
       #
       # 再計算
       #
-      smoothing_count = 0 
-      adjust_count = 0 
-      while(adjust_count < 5)               # とりあえず5回要素間整合したら終了 
-        adjust_data_flg = 0
-        # 要素間整合
-        for j in 0...fcst_count
-          chg_airtmp_flg, chg_rdtmp_flg = adjust_elements_and_check_tmp(j, refr["point_data"][i]["FCST"][j]["SNWFLL_1HOUR_TOTAL"], refw["ZONE_data"][zone_area_count]["FCAS"])
-          # 前後で変化があったら固定ftリストに入れる
-          if chg_airtmp_flg
-            fix_airtmp_fts.push(refw["ZONE_data"][zone_area_count]["FCAS"][j]["FCASD"].get_value_time)
-            adjust_data_flg = 1
-          end
-          if chg_rdtmp_flg 
-            fix_rdtmp_fts.push(refw["ZONE_data"][zone_area_count]["FCAS"][j]["FCASD"].get_value_time)
-            adjust_data_flg = 1
-          end
-        end
-        adjust_count += 1
-        # p "#{zone_id}, #{adjust_data_flg}"
-        # p fix_airtmp_fts
-        # p fix_rdtmp_fts
-        if adjust_count >= 5 
-          break
-        end
-        if smoothing_count == 0 || adjust_data_flg == 1    # まだスムージングしてない または要素間整合で変化があったら
-          smoothing_tmp(refw["ZONE_data"][zone_area_count]["FCAS"], fcst_count, fix_airtmp_fts, fix_rdtmp_fts)      
-          smoothing_count += 1
-        else
-          # すでに１回以上スムージングしている かつ 要素間整合で変化がなかったら
-          # $log.write("adjust finish")
-          break
-        end
-      end
+#      smoothing_count = 0 
+#      adjust_count = 0 
+#      while(adjust_count < 5)               # とりあえず5回要素間整合したら終了 
+#        adjust_data_flg = 0
+#        # 要素間整合
+#        for j in 0...fcst_count
+#          chg_airtmp_flg, chg_rdtmp_flg = adjust_elements_and_check_tmp(j, refr["point_data"][i]["FCST"][j]["SNWFLL_1HOUR_TOTAL"], refw["ZONE_data"][zone_area_count]["FCAS"])
+#          # 前後で変化があったら固定ftリストに入れる
+#          if chg_airtmp_flg
+#            fix_airtmp_fts.push(refw["ZONE_data"][zone_area_count]["FCAS"][j]["FCASD"].get_value_time)
+#            adjust_data_flg = 1
+#          end
+#          if chg_rdtmp_flg 
+#            fix_rdtmp_fts.push(refw["ZONE_data"][zone_area_count]["FCAS"][j]["FCASD"].get_value_time)
+#            adjust_data_flg = 1
+#          end
+#        end
+#        adjust_count += 1
+#        # p "#{zone_id}, #{adjust_data_flg}"
+#        # p fix_airtmp_fts
+#        # p fix_rdtmp_fts
+#        if adjust_count >= 5 
+#          break
+#        end
+#        if smoothing_count == 0 || adjust_data_flg == 1    # まだスムージングしてない または要素間整合で変化があったら
+#          smoothing_tmp(refw["ZONE_data"][zone_area_count]["FCAS"], fcst_count, fix_airtmp_fts, fix_rdtmp_fts)      
+#          smoothing_count += 1
+#        else
+#          # すでに１回以上スムージングしている かつ 要素間整合で変化がなかったら
+#          # $log.write("adjust finish")
+#          break
+#        end
+#      end
       # $log.write("#{zone_id}  adjust_count : #{adjust_count}  smoothing_count : #{smoothing_count}")
-
-      #end
       for j in 0...fcst_count
+        # 要素間整合
+        adjust_elements(j, refr["point_data"][i]["FCST"][j]["SNWFLL_1HOUR_TOTAL"], refw["ZONE_data"][zone_area_count]["FCAS"])
         # 路面状態
         get_rdcnd(j, refw["ZONE_data"][zone_area_count]["FCAS"])
         # 吹雪指数
@@ -499,11 +505,19 @@ def make_winter_ru(input_data)
           end
         end
         refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["NOPRFZ_VSCAL"] = rd_freeze_scale
-        # 10V(寒候期) 整数値
-        rank = get_7v_scale(daynight,zone_id)
-        # 7vスケールから10vスケールへの変換
-        scale_10v = sevenv2tenv(rank, zone_id, rd_freeze_scale, daynight["term"], daynight["RAIN_HOURS"])
-        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["VSCAL"] = scale_10v
+        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["VSCAL_2"] = LACK_VALUE_16 # JB本四
+        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["RSLT"] = LACK_VALUE_8    # JB本四
+        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["RDCND_2"] = LACK_VALUE_8   # JB本四
+        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["RDMSRT"] = LACK_VALUE_8  # JB本四
+        if zone_id  =~ /^51/  # JB本四
+          get_honsi_scale(daynight,zone_id,refw["ZONE_data"][zone_area_count]["FCAS"],refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count])
+        else
+          # 10V(寒候期) 整数値
+          rank = get_7v_scale(daynight,zone_id)
+          # 7vスケールから10vスケールへの変換
+          scale_10v = sevenv2tenv(rank, zone_id, rd_freeze_scale, daynight["term"], daynight["RAIN_HOURS"])
+          refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["VSCAL"] = scale_10v
+        end
         # 0:日中,1:夜間 整数値
         refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["DAYTM_NIGHT_flg"] = daynight["term"] == "day" ? 0 : 1
         day_night_count +=1
@@ -599,6 +613,8 @@ def main()
       $log.write("%s data not spooled." % [$config["c3op_change_spool"]])
     end
   end
+  # JB本四
+  read_honsi_spool()
   $log.write("spool data read end.")
   # 寒候期出力RUの生成
   make_winter_ru(ARGV[1])

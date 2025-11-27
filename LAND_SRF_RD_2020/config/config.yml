@@ -16,9 +16,12 @@ rd_level3_time_list_spool: /usr/amoeba/spool/workspace/OBSERVATION_PREC_INTEG/ro
 rd_latest_time_list: /usr/amoeba/spool/workspace/OBSERVATION_PREC_INTEG/latest_time_list.pst
 szid_asmid_rain_pid_spool: /usr/amoeba/spool/workspace/LAND_SRF_RD_SOILPREC/szid_asmid_rain_pid.pst
 CL_version: /usr/amoeba/spool/workspace/LAND_SRF_RD_SOILPREC/cl_version.pst
+jbhonsi_manualentered_spool: jbhonsi_manualentered.pst
+honsi_winter_obsid_spool: winter_obsid_honsi.pst
 mk2_prec_table: observation_prec_integ
 mk2_scale_table: observation_prec_scale
 mk2_soilp_table: obs_soilp_scale_index
+mk2_winter_table: observation_winter
 "411024529":
   winter_dataid16: "0200600011024609"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_percentile_30_raw
@@ -213,6 +216,32 @@ mk2_soilp_table: obs_soilp_scale_index
   summer_dataid16: "0200600011026321"
   summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_main30
 #
+"411026377":
+  winter_dataid16: "0200600011026383"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_01
+"411026097":
+  winter_dataid16: "0200600011026384"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_05
+"411026098":
+  winter_dataid16: "0200600011026385"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_15
+"411026378":
+  winter_dataid16: "0200600011026386"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_70
+"411026379":
+  winter_dataid16: "0200600011026387"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_90
+#
+"411026332":
+  summer_dataid16: "0200600011026358"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_peak_multimodel_main10
+"411026333":
+  summer_dataid16: "0200600011026359"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_peak_multimodel_main20
+"411026334":
+  summer_dataid16: "0200600011026360"
+  summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_peak_multimodel_main30
+#
 edit_output:
   winter_tagid: 411024614
   winter_dataid16: "0200600011024614"
@@ -272,7 +301,8 @@ lock_file_raw_winter:
   "411026177": make_raw_winter_lock_1
   "411026178": make_raw_winter_lock_1
   "411026179": make_raw_winter_lock_1
-# 15
+  "411026377": make_raw_winter_lock_1
+# 16
   "411026101": make_raw_winter_lock_2
   "411026102": make_raw_winter_lock_2
   "411026103": make_raw_winter_lock_2
@@ -287,7 +317,9 @@ lock_file_raw_winter:
   "411026171": make_raw_winter_lock_2
   "411026172": make_raw_winter_lock_2
   "411026173": make_raw_winter_lock_2
-# 14
+  "411026097": make_raw_winter_lock_2
+  "411026378": make_raw_winter_lock_2
+# 16
   "411026112": make_raw_winter_lock_3
   "411026113": make_raw_winter_lock_3
   "411026114": make_raw_winter_lock_3
@@ -302,7 +334,9 @@ lock_file_raw_winter:
   "411026174": make_raw_winter_lock_3
   "411026175": make_raw_winter_lock_3
   "411026176": make_raw_winter_lock_3
-# 14
+  "411026098": make_raw_winter_lock_3
+  "411026379": make_raw_winter_lock_3
+# 16
 # lock file make raw data summer
 lock_file_raw_summer: make_raw_summer_lock
 # raw

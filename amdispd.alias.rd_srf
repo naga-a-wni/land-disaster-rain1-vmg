@@ -187,3 +187,69 @@ CopyDir=/usr/amoeba/capture
 [412010282]
 JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_main30
 CopyDir=/usr/amoeba/capture
+# -------
+# 202511
+# -------
+#
+# RD体制判断10V用 短期COMPASS 01%パーセンタイル
+#
+[411026377]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_01
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 5%パーセンタイル
+#
+[411026097]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 15%パーセンタイル
+#
+[411026098]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 70%パーセンタイル
+#
+[411026378]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_70
+CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 90%パーセンタイル
+#
+[411026379]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_90
+CopyDir=/usr/amoeba/capture
+# -------
+# 202509
+# -------
+#
+# RD向けCOMPASS強雨シナリオメリハリデータ（マルチモデル版, Main 10%）
+#
+[411026332]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main10
+CopyDir=/usr/amoeba/capture
+#
+# RD向けCOMPASS強雨シナリオメリハリデータ（マルチモデル版, Main 20%）
+#
+[411026333]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main20
+CopyDir=/usr/amoeba/capture
+#
+# RD向けCOMPASS強雨シナリオメリハリデータ（マルチモデル版, Main 30%）
+#
+[411026334]
+JobName=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main30
+CopyDir=/usr/amoeba/capture
+#
+# FCASJP.xml
+#
+[431020019]
+JobName=RECV_FCASJP_XML
+CopyDir=/usr/amoeba/capture
+#
+# JB本四 観測情報入力 寒候期区間ID付き
+#
+[402201256]
+JobName=RECV_NEXCO_OBS_HONSI_ManualEntered_WNTR_zoneID
+CopyDir=/usr/amoeba/capture

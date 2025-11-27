@@ -64,6 +64,10 @@ def create_ruheader_winter(announced,dataid16,data_name)
     "],"                                                +
     "VSCAL:INT16,"                                      + # 10V(寒候期) 整数値
     "NOPRFZ_VSCAL:INT16,"                               + # 10V(無降水) 整数値
+    "VSCAL_2:INT16,"                                    + # 10V(JB本四) 整数値
+    "RSLT:INT8,"                                        + # 残留塩分 0:入力なし, 1:不明, 2:無し, 3:有り
+    "RDCND_2:INT8,"                                     + # 路面状態 0:入力なし、又は---, 1:乾燥, 2:湿潤
+    "RDMSRT:INT8,"                                      + # 路面水分 0:不明, 1:無し, 2:有り
     "DAYTM_NIGHT_flg:INT8"                              + # 0:日中,1:夜間 整数値
     "]"                                                 +
     "]"
