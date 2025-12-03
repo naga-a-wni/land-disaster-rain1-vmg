@@ -232,6 +232,13 @@ mk2_winter_table: observation_winter
   winter_dataid16: "0200600011026387"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_90
 #
+"411026376":
+  winter_dataid16: "0200600011026390"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_pressure_pattern_severe
+"411026388":
+  winter_dataid16: "0200600011026391"
+  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_heavysnow_pressure_pattern_severe
+#
 "411026332":
   summer_dataid16: "0200600011026358"
   summer_data_name: WNI_SRF_VSCAL_RD_routepatrol_HVRNP_peak_multimodel_main10
@@ -319,7 +326,8 @@ lock_file_raw_winter:
   "411026173": make_raw_winter_lock_2
   "411026097": make_raw_winter_lock_2
   "411026378": make_raw_winter_lock_2
-# 16
+  "411026376": make_raw_winter_lock_2
+# 17
   "411026112": make_raw_winter_lock_3
   "411026113": make_raw_winter_lock_3
   "411026114": make_raw_winter_lock_3
@@ -336,7 +344,8 @@ lock_file_raw_winter:
   "411026176": make_raw_winter_lock_3
   "411026098": make_raw_winter_lock_3
   "411026379": make_raw_winter_lock_3
-# 16
+  "411026388": make_raw_winter_lock_3
+# 17
 # lock file make raw data summer
 lock_file_raw_summer: make_raw_summer_lock
 # raw

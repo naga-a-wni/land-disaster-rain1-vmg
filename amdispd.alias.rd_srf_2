@@ -187,3 +187,18 @@ CopyDir=/usr/amoeba/capture
 [411026179]
 JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
 CopyDir=/usr/amoeba/capture
+# -------
+# 202512 
+# -------
+#
+# 気圧配置パターン冬シビア(point)
+#
+[411026376]
+JobName=RECV_WNI_SRF_COMPAS_pressure_pattern_severe
+CopyDir=/usr/amoeba/capture
+#
+# RDシナリオ・気圧配置シビアメリハリデータ
+#
+[411026388]
+JobName=RECV_WNI_SRF_VSCAL_RD_SCNRO_heavysnow_pressure_pattern_severe
+CopyDir=/usr/amoeba/capture

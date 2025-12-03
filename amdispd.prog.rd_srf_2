@@ -249,3 +249,22 @@ Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h 
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_05_v2.log
 WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
 NelsonID=411026240
+# -------
+# 202512 
+# -------
+#-------------------------------------------------------------------------------
+# RD雪氷判断支援(短期)気圧配置パターン冬シビア(point)
+#-------------------------------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_PRESSURE_PATTERN_SEVERE]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026376 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_pressure_pattern_severe.log
+WaitList=RECV_WNI_SRF_COMPAS_pressure_pattern_severe
+NelsonID=411026390
+#-------------------------------------------------------------------------------
+# RD雪氷判断支援(短期)RDシナリオ・気圧配置シビアメリハリデータ
+#-------------------------------------------------------------------------------
+[MAKE_RD_SRFC_10V_RAW_HEAVYSNOW_PRESSURE_PATTERN_SEVERE]
+Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026388 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_heavysnow_pressure_pattern_severe.log
+WaitList=RECV_WNI_SRF_VSCAL_RD_SCNRO_heavysnow_pressure_pattern_severe
+NelsonID=411026391
