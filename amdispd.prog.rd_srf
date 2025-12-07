@@ -132,11 +132,11 @@ NelsonID=411024906
 #-------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 50%)-
 #-------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_50]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411024884 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_50.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
-NelsonID=411024907
+#[MAKE_RD_SRFC_10V_RAW_winter_SCNRO_heavysnow_50]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411024884 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10V_raw_winter_SCNRO_heavysnow_50.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
+#NelsonID=411024907
 #-------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASSメリハリ雪データ(Main 60%)-
 #-------------------------------------------------------

@@ -13,9 +13,9 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ2024冬期 メリハリ・OWNゼロ雪フィルタ（Main 30%）
 #
-[411026103]
-JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_30
-CopyDir=/usr/amoeba/capture
+#[411026103]
+#JobName=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_30
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ2024冬期 メリハリ・OWNゼロ雪フィルタ（気圧配置）
 #
@@ -61,9 +61,9 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ2024冬期 OWNゼロ雪フィルタ（Main 20%）
 #
-[411026111]
-JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_20
-CopyDir=/usr/amoeba/capture
+#[411026111]
+#JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_20
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ2024冬期 OWNゼロ雪フィルタ（気圧配置）
 #
@@ -91,15 +91,15 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ 2024冬期 MSM 降水相 フィルタ (Main 20%)
 #
-[411026116]
-JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_20
-CopyDir=/usr/amoeba/capture
+#[411026116]
+#JobName=RECV_WNI_SRF_VSCAL_RD_msmphase_20
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 50%)
 #
-[411026117]
-JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_50
-CopyDir=/usr/amoeba/capture
+#[411026117]
+#JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_50
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 40%)
 #
@@ -115,9 +115,9 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 20%)
 #
-[411026120]
-JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_20
-CopyDir=/usr/amoeba/capture
+#[411026120]
+#JobName=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_20
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ 2024冬期 OWNゼロ雪・OWN 降水相 フィルタ (Main 40%)
 #
@@ -136,21 +136,21 @@ CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 80%パーセンタイル 第二降雪量版
 #
-[411026171]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80_v2
-CopyDir=/usr/amoeba/capture
+#[411026171]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 60%パーセンタイル 第二降雪量版
 #
-[411026172]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60_v2
-CopyDir=/usr/amoeba/capture
+#[411026172]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 50%パーセンタイル 第二降雪量版
 #
-[411026173]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_50_v2
-CopyDir=/usr/amoeba/capture
+#[411026173]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_50_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 40%パーセンタイル 第二降雪量版
 #
@@ -160,33 +160,33 @@ CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 30%パーセンタイル 第二降雪量版
 #
-[411026175]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_30_v2
-CopyDir=/usr/amoeba/capture
+#[411026175]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_30_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 20%パーセンタイル 第二降雪量版
 #
-[411026176]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_20_v2
-CopyDir=/usr/amoeba/capture
+#[411026176]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_20_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 15%パーセンタイル 第二降雪量版
 #
-[411026177]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15_v2
-CopyDir=/usr/amoeba/capture
+#[411026177]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 10%パーセンタイル 第二降雪量版
 #
-[411026178]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_10_v2
-CopyDir=/usr/amoeba/capture
+#[411026178]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_10_v2
+#CopyDir=/usr/amoeba/capture
 #
 # RD体制判断10V用 短期COMPASS 5%パーセンタイル 第二降雪量版
 #
-[411026179]
-JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
-CopyDir=/usr/amoeba/capture
+#[411026179]
+#JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
+#CopyDir=/usr/amoeba/capture
 # -------
 # 202512 
 # -------

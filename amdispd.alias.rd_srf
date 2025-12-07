@@ -145,9 +145,9 @@ CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ メリハリ雪データ(Main 50%)
 #
-[411024884]
-JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
-CopyDir=/usr/amoeba/capture
+#[411024884]
+#JobName=RECV_WNI_SRF_VSCAL_RD_snowremoval_SCNRO_heavysnow_50
+#CopyDir=/usr/amoeba/capture
 #
 # RDシナリオ メリハリ雪データ(Main 60%)
 #

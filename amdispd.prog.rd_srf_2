@@ -17,11 +17,11 @@ NelsonID=411026127
 #-----------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 メリハリ・OWNゼロ雪フィルタ（Main 30%）
 #-----------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_SNOWPEAK_ZEROSNOW_30]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026103 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_snowpeak_zerosnow_30.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_30
-NelsonID=411026128
+#[MAKE_RD_SRFC_10V_RAW_SNOWPEAK_ZEROSNOW_30]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026103 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_snowpeak_zerosnow_30.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_snowpeak_zerosnow_30
+#NelsonID=411026128
 #-----------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 メリハリ・OWNゼロ雪フィルタ（気圧配置）
 #-----------------------------------------------------------------------------
@@ -81,11 +81,11 @@ NelsonID=411026135
 #-------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪フィルタ（Main 20%）
 #-------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026111 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_20.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_20
-NelsonID=411026136
+#[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_20]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026111 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_20.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_20
+#NelsonID=411026136
 #-------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪フィルタ（気圧配置）
 #-------------------------------------------------------------------
@@ -121,19 +121,19 @@ NelsonID=411026140
 #--------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 MSM 降水相 フィルタ (Main 20%)
 #--------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_MSMPHASE_20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026116 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_msmphase_20.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_msmphase_20
-NelsonID=411026141
+#[MAKE_RD_SRFC_10V_RAW_MSMPHASE_20]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026116 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_msmphase_20.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_msmphase_20
+#NelsonID=411026141
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 50%)
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_MSMPHASE_50]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026117 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_msmphase_50.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_50
-NelsonID=411026142
+#[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_MSMPHASE_50]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026117 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_msmphase_50.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_50
+#NelsonID=411026142
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 40%)
 #-------------------------------------------------------------------------------
@@ -153,11 +153,11 @@ NelsonID=411026144
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪・MSM 降水相 フィルタ (Main 20%)
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_MSMPHASE_20]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026120 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_msmphase_20.log
-WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_20
-NelsonID=411026145
+#[MAKE_RD_SRFC_10V_RAW_ZEROSNOW_MSMPHASE_20]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026120 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_zerosnow_msmphase_20.log
+#WaitList=RECV_WNI_SRF_VSCAL_RD_zerosnow_msmphase_20
+#NelsonID=411026145
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 2024冬期 OWNゼロ雪・OWN 降水相 フィルタ (Main 40%)
 #-------------------------------------------------------------------------------
@@ -180,27 +180,27 @@ NelsonID=411026147
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 80%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_80_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026171 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_80_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80_v2
-NelsonID=411026232
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_80_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026171 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_80_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_80_v2
+#NelsonID=411026232
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 60%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_60_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026172 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_60_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60_v2
-NelsonID=411026233
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_60_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026172 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_60_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_60_v2
+#NelsonID=411026233
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 50%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_50_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026173 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_50_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_50_v2
-NelsonID=411026234
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_50_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026173 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_50_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_50_v2
+#NelsonID=411026234
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 40%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
@@ -212,43 +212,43 @@ NelsonID=411026235
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 30%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_30_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026175 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_30_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_30_v2
-NelsonID=411026236
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_30_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026175 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_30_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_30_v2
+#NelsonID=411026236
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 20%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_20_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026176 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_20_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_20_v2
-NelsonID=411026237
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_20_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026176 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_20_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_20_v2
+#NelsonID=411026237
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 15%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_15_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026177 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_15_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15_v2
-NelsonID=411026238
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_15_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026177 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_15_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_15_v2
+#NelsonID=411026238
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 10%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_10_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026178 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_10_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_10_v2
-NelsonID=411026239
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_10_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026178 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_10_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_10_v2
+#NelsonID=411026239
 #-------------------------------------------------------------------------------
 # RD雪氷判断支援(短期)COMPASS 5%パーセンタイル 第二降雪量版
 #-------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_05_V2]
-Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026179 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
-LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_05_v2.log
-WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
-NelsonID=411026240
+#[MAKE_RD_SRFC_10V_RAW_STANDBYDECISION_PERCENTILE_05_V2]
+#Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_winter.rb -h gpec-zf7-vmg.wni.co.jp -t 411026179 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
+#LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_winter_standbydecision_percentile_05_v2.log
+#WaitList=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_percentile_05_v2
+#NelsonID=411026240
 # -------
 # 202512 
 # -------

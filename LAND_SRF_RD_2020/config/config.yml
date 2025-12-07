@@ -98,9 +98,9 @@ mk2_winter_table: observation_winter
 "411024883":
   winter_dataid16: "0200600011024906"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_sharp_main40
-"411024884":
-  winter_dataid16: "0200600011024907"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_sharp_main50
+#"411024884":
+#  winter_dataid16: "0200600011024907"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_sharp_main50
 "411024885":
   winter_dataid16: "0200600011024908"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_sharp_main60
@@ -117,9 +117,9 @@ mk2_winter_table: observation_winter
 "411026102":
   winter_dataid16: "0200600011026127"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_snowpeak_zerosnow_40
-"411026103":
-  winter_dataid16: "0200600011026128"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_snowpeak_zerosnow_30
+#"411026103":
+#  winter_dataid16: "0200600011026128"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_snowpeak_zerosnow_30
 "411026104":
   winter_dataid16: "0200600011026129"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_snowpeak_zerosnow_pressure_pattern
@@ -141,9 +141,9 @@ mk2_winter_table: observation_winter
 "411026110":
   winter_dataid16: "0200600011026135"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_30
-"411026111":
-  winter_dataid16: "0200600011026136"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_20
+#"411026111":
+#  winter_dataid16: "0200600011026136"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_20
 "411026112":
   winter_dataid16: "0200600011026137"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_pressure_pattern
@@ -156,21 +156,21 @@ mk2_winter_table: observation_winter
 "411026115":
   winter_dataid16: "0200600011026140"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_msmphase_30
-"411026116":
-  winter_dataid16: "0200600011026141"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_msmphase_20
-"411026117":
-  winter_dataid16: "0200600011026142"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_50
+#"411026116":
+#  winter_dataid16: "0200600011026141"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_msmphase_20
+#"411026117":
+#  winter_dataid16: "0200600011026142"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_50
 "411026118":
   winter_dataid16: "0200600011026143"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_40
 "411026119":
   winter_dataid16: "0200600011026144"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_30
-"411026120":
-  winter_dataid16: "0200600011026145"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_20
+#"411026120":
+#  winter_dataid16: "0200600011026145"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_msmphase_20
 "411026121":
   winter_dataid16: "0200600011026146"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_ownphase_40
@@ -178,33 +178,33 @@ mk2_winter_table: observation_winter
   winter_dataid16: "0200600011026147"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_zerosnow_ownphase_30
 # 2025
-"411026171":
-  winter_dataid16: "0200600011026232"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_80_v2
-"411026172":
-  winter_dataid16: "0200600011026233"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_60_v2
-"411026173":
-  winter_dataid16: "0200600011026234"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_50_v2
+#"411026171":
+#  winter_dataid16: "0200600011026232"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_80_v2
+#"411026172":
+#  winter_dataid16: "0200600011026233"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_60_v2
+#"411026173":
+#  winter_dataid16: "0200600011026234"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_50_v2
 "411026174":
   winter_dataid16: "0200600011026235"
   winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_40_v2
-"411026175":
-  winter_dataid16: "0200600011026236"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_30_v2
-"411026176":
-  winter_dataid16: "0200600011026237"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_20_v2
-"411026177":
-  winter_dataid16: "0200600011026238"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_15_v2
-"411026178":
-  winter_dataid16: "0200600011026239"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_10_v2
-"411026179":
-  winter_dataid16: "0200600011026240"
-  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_05_v2
+#"411026175":
+#  winter_dataid16: "0200600011026236"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_30_v2
+#"411026176":
+#  winter_dataid16: "0200600011026237"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_20_v2
+#"411026177":
+#  winter_dataid16: "0200600011026238"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_15_v2
+#"411026178":
+#  winter_dataid16: "0200600011026239"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_10_v2
+#"411026179":
+#  winter_dataid16: "0200600011026240"
+#  winter_data_name: WNI_SRF_VSCAL_RD_snowremoval_PRCNTL_05_v2
 #
 "412010280":
   summer_dataid16: "0200600011026319"
@@ -301,18 +301,18 @@ lock_file_raw_winter:
   "411024758": make_raw_winter_lock_1
   "411024882": make_raw_winter_lock_1
   "411024883": make_raw_winter_lock_1
-  "411024884": make_raw_winter_lock_1
+#  "411024884": make_raw_winter_lock_1
 #  "411024885": make_raw_winter_lock_1
   "411024900": make_raw_winter_lock_1
   "411024901": make_raw_winter_lock_1
-  "411026177": make_raw_winter_lock_1
-  "411026178": make_raw_winter_lock_1
-  "411026179": make_raw_winter_lock_1
+#  "411026177": make_raw_winter_lock_1
+#  "411026178": make_raw_winter_lock_1
+#  "411026179": make_raw_winter_lock_1
   "411026377": make_raw_winter_lock_1
-# 16
+# 12
   "411026101": make_raw_winter_lock_2
   "411026102": make_raw_winter_lock_2
-  "411026103": make_raw_winter_lock_2
+#  "411026103": make_raw_winter_lock_2
   "411026104": make_raw_winter_lock_2
   "411026105": make_raw_winter_lock_2
   "411026106": make_raw_winter_lock_2
@@ -320,32 +320,32 @@ lock_file_raw_winter:
   "411026108": make_raw_winter_lock_2
   "411026109": make_raw_winter_lock_2
   "411026110": make_raw_winter_lock_2
-  "411026111": make_raw_winter_lock_2
-  "411026171": make_raw_winter_lock_2
-  "411026172": make_raw_winter_lock_2
-  "411026173": make_raw_winter_lock_2
+#  "411026111": make_raw_winter_lock_2
+#  "411026171": make_raw_winter_lock_2
+#  "411026172": make_raw_winter_lock_2
+#  "411026173": make_raw_winter_lock_2
   "411026097": make_raw_winter_lock_2
   "411026378": make_raw_winter_lock_2
   "411026376": make_raw_winter_lock_2
-# 17
+# 12
   "411026112": make_raw_winter_lock_3
   "411026113": make_raw_winter_lock_3
   "411026114": make_raw_winter_lock_3
   "411026115": make_raw_winter_lock_3
-  "411026116": make_raw_winter_lock_3
-  "411026117": make_raw_winter_lock_3
+#  "411026116": make_raw_winter_lock_3
+#  "411026117": make_raw_winter_lock_3
   "411026118": make_raw_winter_lock_3
   "411026119": make_raw_winter_lock_3
-  "411026120": make_raw_winter_lock_3
+#  "411026120": make_raw_winter_lock_3
   "411026121": make_raw_winter_lock_3
   "411026122": make_raw_winter_lock_3
   "411026174": make_raw_winter_lock_3
-  "411026175": make_raw_winter_lock_3
-  "411026176": make_raw_winter_lock_3
+#  "411026175": make_raw_winter_lock_3
+#  "411026176": make_raw_winter_lock_3
   "411026098": make_raw_winter_lock_3
   "411026379": make_raw_winter_lock_3
   "411026388": make_raw_winter_lock_3
-# 17
+# 12
 # lock file make raw data summer
 lock_file_raw_summer: make_raw_summer_lock
 # raw

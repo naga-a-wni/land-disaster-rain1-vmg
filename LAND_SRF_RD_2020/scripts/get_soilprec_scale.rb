@@ -83,7 +83,7 @@ def get_soilprec_scale( hprec, sprec, lvldata )
     lvl_sthd[lvl] = o_lvl[i].sthd
     if lvl_sthd[lvl] > 0
       print "lvl=%s sprec=%s thd=%s\n" % [lvl,sprec,lvl_sthd[lvl] ] if $verbose
-      if max_level < lvl && sprec > lvl_sthd[lvl]
+      if max_level < lvl && sprec >= lvl_sthd[lvl]
         # 土壌雨量が閾値を超える
         max_level = lvl
       end
