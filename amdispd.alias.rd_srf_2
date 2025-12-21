@@ -202,3 +202,9 @@ CopyDir=/usr/amoeba/capture
 [411026388]
 JobName=RECV_WNI_SRF_VSCAL_RD_SCNRO_heavysnow_pressure_pattern_severe
 CopyDir=/usr/amoeba/capture
+#
+# RD体制判断10V用 短期COMPASS 2D-1D降雪量モデルによる改善版
+#
+[411026393]
+JobName=RECV_WNI_SRF_COMPAS_for_RD_standbydecision_2d_to_1d
+CopyDir=/usr/amoeba/capture
