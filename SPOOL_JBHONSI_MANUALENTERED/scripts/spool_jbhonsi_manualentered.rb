@@ -130,7 +130,7 @@ def main()
         btimes = merge_data.keys.sort
         latest = btimes.last
         btimes.each{|bt|
-          if bt < latest - 3600
+          if bt < latest - 3600 * 3
             merge_data.delete(bt)
             $log.write("delete %s" % [bt])
           end

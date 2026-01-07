@@ -79,7 +79,7 @@ def read_honsi_spool()
     # 最新のデータのみ
     otms = jbhonsi_manualentered.keys.sort
     otms.reverse_each{|obs_time|
-      if obs_time < Time.now-3600
+      if obs_time < Time.now - 3600 * 3
         break
       end
       jbhonsi_manualentered[obs_time].each_pair{|zid,evalue|
