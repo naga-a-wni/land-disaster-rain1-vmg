@@ -504,10 +504,10 @@ def make_winter_ru(input_data)
             rd_freeze_scale = rd_freeze_renzoku_scale
           end
         end
-        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["NOPRFZ_VSCAL"] = 0
-        if daynight["term"] != "day"
-          refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["NOPRFZ_VSCAL"] = rd_freeze_scale
+        if daynight["term"] == "day"
+          rd_freeze_scale = 0
         end
+        refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["NOPRFZ_VSCAL"] = rd_freeze_scale
         refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["VSCAL_2"] = LACK_VALUE_16 # JB本四
         refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["RSLT"] = LACK_VALUE_8    # JB本四
         refw["ZONE_data"][zone_area_count]["DAYTM_NIGHT"][day_night_count]["RDCND_2"] = LACK_VALUE_8   # JB本四
