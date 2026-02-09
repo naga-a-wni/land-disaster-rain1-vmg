@@ -89,26 +89,26 @@ def read_honsi_spool()
         value = salt_residue_level(evalue["RSLT"])
         if latest_manualentered[zid]["RSLT"] == nil
           latest_manualentered[zid]["RSLT"] = value
-        else
-          if latest_manualentered[zid]["RSLT"] == 2 || latest_manualentered[zid]["RSLT"] == 3
-            next
-          else
-            if value == 2 || value == 3
-              latest_manualentered[zid]["RSLT"] = value
-            end
-          end
+#        else
+#          if latest_manualentered[zid]["RSLT"] == 2 || latest_manualentered[zid]["RSLT"] == 3
+#            next
+#          else
+#            if value == 2 || value == 3
+#              latest_manualentered[zid]["RSLT"] = value
+#            end
+#          end
         end
         value = road_cond_level(evalue["RDCND"])
         if latest_manualentered[zid]["RDCND"] == nil
           latest_manualentered[zid]["RDCND"] = value
-        else
-          if latest_manualentered[zid]["RDCND"] == 1 || latest_manualentered[zid]["RDCND"] == 2
-            next
-          else
-            if value == 1 || value == 2
-              latest_manualentered[zid]["RDCND"] = value
-            end
-          end
+#        else
+#          if latest_manualentered[zid]["RDCND"] == 1 || latest_manualentered[zid]["RDCND"] == 2
+#            next
+#          else
+#            if value == 1 || value == 2
+#              latest_manualentered[zid]["RDCND"] = value
+#            end
+#          end
         end
       }
     }
