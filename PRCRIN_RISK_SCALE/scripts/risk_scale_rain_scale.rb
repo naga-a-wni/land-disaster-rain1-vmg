@@ -97,7 +97,8 @@ def save_60min(pid,fti,justtime)
     if $output_data[pid][fti]["kakuho"] == nil
       $output_data[pid][fti]["kakuho"] = {}
     end
-    if  fti == 3 || kakuho_invalid
+#    if  fti == 3 || kakuho_invalid
+    if kakuho_invalid
       p60 = c_p60
     else
       if fti == 1
@@ -183,7 +184,8 @@ def get_scale_60min(pid,lvl,fti,justtime)
       if $output_data[pid][fti]["kakuho"] == nil
         $output_data[pid][fti]["kakuho"] = {}
       end
-      if fti == 3 || kakuho_invalid
+#      if fti == 3 || kakuho_invalid
+      if kakuho_invalid
         p60 = c_p60
       else
         if fti == 1
@@ -214,6 +216,9 @@ def get_scale_60min(pid,lvl,fti,justtime)
         $output_data[pid][fti]["kakuho"]["INDEX_PRCRIN_60min"] = lvl
       end
     end
+#    if fti == 2 || fti == 3
+#      $ft2_60min[fti][pid] = p60 < 0 ? c_p60 : p60
+#    end
   end
 end
 

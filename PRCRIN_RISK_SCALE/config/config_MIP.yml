@@ -45,9 +45,9 @@ keep_level_combine_60: 0.5
 deliver_host: localhost
 deliver_port: 32000
 # 降水確報フィルター
-kakuho_filter: 0.7
-kakuho_filter_2: 0.575
-kakuho_filter_3: 2.5
+kakuho_filter: 0.6
+kakuho_filter_2: 0.55
+kakuho_filter_3: 1.0
 kakuho_filter_4: 20
 # 編集機能
 edit_data: 0
@@ -75,4 +75,4 @@ mk2_analysis_prec_mesh_accum_max: mip_analisys_prec_mesh_accum_max
 # 1kmのメッシュ情報
 area_mesh_kakuho_path: /usr/amoeba/spool/workspace/RISK_SCALE_COMMON/MIP_area_mesh_kakuho_map.pst
 # 乱高下防止処理の確報ロジック適用最終FT
-scale_arrange_nowcast: 2
+scale_arrange_nowcast: 3
