@@ -352,7 +352,7 @@ NelsonID=411026321
 #------------------------------------------------------------------------------------
 # RD通行規制可否判断支援(短期)強雨シナリオメリハリデータ（マルチモデル版, Main 10%） 
 #------------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main10]
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_peak_multimodel_main10]
 Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411026332 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_peak_multimodel_main10.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main10
@@ -360,7 +360,7 @@ NelsonID=411026358
 #------------------------------------------------------------------------------------
 # RD通行規制可否判断支援(短期)強雨シナリオメリハリデータ（マルチモデル版, Main 20%） 
 #------------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main20]
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_peak_multimodel_main20]
 Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411026333 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_peak_multimodel_main20.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main20
@@ -368,7 +368,7 @@ NelsonID=411026359
 #------------------------------------------------------------------------------------
 # RD通行規制可否判断支援(短期)強雨シナリオメリハリデータ（マルチモデル版, Main 30%） 
 #------------------------------------------------------------------------------------
-[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_main30]
+[MAKE_RD_SRFC_10V_RAW_summer_PRCRIN_HVRNP_peak_multimodel_main30]
 Command=/usr/amoeba/tools/LAND_SRF_RD_2020/scripts/rd_srfc_10V_raw_summer.rb -h gpec-zf7-vmg.wni.co.jp -t 411026334 -o %output /usr/amoeba/tools/LAND_SRF_RD_2020/config/config.yml %input
 LogFile=/usr/amoeba/log/LAND_SRF_RD_2020/rd_srfc_10v_raw_summer_prcrin_hvrnp_peak_multimodel_main30.log
 WaitList=RECV_WNI_SRF_COMPAS_SCNRO_RD_PRCRIN_HVRNP_peak_multimodel_main30
