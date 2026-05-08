@@ -303,6 +303,9 @@ def load_pntfile(xmlfile)
         if tagid == "402200988"
           tagid = "402200465"
         end
+        if tagid == "402201261"
+          tagid = "402200465"
+        end
         points[zone_id]["SMALL_ZONE"][small_zid]["RAIN_POINT"][rain_pid]["tagid"] = tagid
         points[zone_id]["SMALL_ZONE"][small_zid]["RAIN_POINT"][rain_pid]["obs_point_name"] = rp['obs_point_name'].text
         if rp['LCLID'] == nil || rp['LCLID'].text == nil
