@@ -353,6 +353,25 @@ lock_file_raw_winter:
   "411026388": make_raw_winter_lock_3
 # 12
 # lock file make raw data summer
-lock_file_raw_summer: make_raw_summer_lock
+lock_file_raw_summer:
+  "411024588": make_raw_summer_lock_1
+  "411024529": make_raw_summer_lock_1
+  "411024528": make_raw_summer_lock_1
+  "411024527": make_raw_summer_lock_1
+  "411024713": make_raw_summer_lock_1
+  "412010210": make_raw_summer_lock_1
+  "412010211": make_raw_summer_lock_1
+  "412010212": make_raw_summer_lock_1
+  "412010213": make_raw_summer_lock_1
+# 9
+  "412010216": make_raw_summer_lock_2
+  "412010217": make_raw_summer_lock_2
+  "412010218": make_raw_summer_lock_2
+  "412010219": make_raw_summer_lock_2
+  "411024831": make_raw_summer_lock_2
+  "412010280": make_raw_summer_lock_2
+  "412010281": make_raw_summer_lock_2
+  "412010282": make_raw_summer_lock_2
+# 8
 # raw
 raw_host: gpec-zf7-vmg

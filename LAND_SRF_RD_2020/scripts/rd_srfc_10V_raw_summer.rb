@@ -663,7 +663,7 @@ def main()
   usage() if(ARGV.size < 2)
   $config = YAML.load_file(ARGV[0])
   $log =  LogWrite.new(logfile)
-  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_summer"])
+  lock_f = lock_and_wait($config["spool_dir"] + $config["lock_file_raw_summer"][input_tagid])
   if input_tagid == "" || $config[input_tagid] == nil
     $log.write("input_tagid=%s not supported." % [input_tagid])
     return
