@@ -179,6 +179,7 @@ def make_summer_ru(ru_data)
 #          $log.write("%s latest_obs %s." % [tid,latest_obs.to_s])
         else
           $log.write("%s latest_obs not exist." % [tid])
+          ho_just = announced_date - 3600 * 24
         end
         prcrin_prst_nmm = table_rain_point["reset_prec"]
         prcrin_prst_nhour = table_rain_point["reset_hour"]
